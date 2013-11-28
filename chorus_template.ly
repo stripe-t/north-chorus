@@ -1,4 +1,4 @@
-% Template revision 1
+% Template revision 2
 %
 % For Flescobaldi :
 % -*- indent-width: 4; tab-width: 4; indent-tabs: true;
@@ -28,6 +28,7 @@
 				\fontsize #-1 \fromproperty #'page:page-number-string \null
 			}
 			
+			\draw-hline
 		}
 		
 	}
@@ -179,8 +180,7 @@ pianolh = \relative c {
 		\new PianoStaff <<
 			\override Score.StaffSymbol #'ledger-line-thickness = #'(1.0 . 0.0)
 			\new Staff <<
-				\overrideProperty #"Score.NonMusicalPaperColumn"
-				#'line-break-system-details #'((Y-offset . 10)(alignment-distances . (6 0)))
+				% \overrideProperty #"Score.NonMusicalPaperColumn" #'line-break-system-details #'((Y-offset . 10)(alignment-distances . (6 0)))
 				\clef treble \soprano \alto
 			>>
 			\new Staff <<\clef bass \tenor \bass>>
