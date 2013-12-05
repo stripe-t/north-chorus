@@ -13,33 +13,33 @@
 
 % The number next to "th" in (th 0.2) controls thickness of the brackets. 
 #(define-markup-command (left-bracket layout props) ()
-"Draw left hand bracket"
-(let* ((th 0.2) ;; todo: take from GROB
-	(width (* 2.5 th)) ;; todo: take from GROB
-	(ext '(-2.8 . 2.8))) ;; todo: take line-count into account
-	(ly:bracket Y ext th width)))
+	 "Draw left hand bracket"
+	 (let* ((th 0.2) ;; todo: take from GROB
+			(width (* 2.5 th)) ;; todo: take from GROB
+			(ext '(-2.8 . 2.8))) ;; todo: take line-count into account
+		 (ly:bracket Y ext th width)))
 
 leftBracket = {
-\once\override BreathingSign #'text = #(make-left-bracket-markup)
-\once\override BreathingSign #'break-visibility = #end-of-line-invisible
-\once\override BreathingSign #'Y-offset = ##f
-% Trick to print it after barlines and signatures:
-\once\override BreathingSign #'break-align-symbol = #'custos
-\breathe 
+	\once\override BreathingSign #'text = #(make-left-bracket-markup)
+	\once\override BreathingSign #'break-visibility = #end-of-line-invisible
+	\once\override BreathingSign #'Y-offset = ##f
+	% Trick to print it after barlines and signatures:
+	\once\override BreathingSign #'break-align-symbol = #'custos
+	\breathe
 }
 
 
 #(define-markup-command (right-bracket layout props) ()
-"Draw right hand bracket"
-(let* ((th .2);;todo: take from GROB
-(width (* 2.5 th)) ;; todo: take from GROB
-	(ext '(-2.8 . 2.8))) ;; todo: take line-count into account
-	(ly:bracket Y ext th (- width))))
+	 "Draw right hand bracket"
+	 (let* ((th .2);;todo: take from GROB
+			(width (* 2.5 th)) ;; todo: take from GROB
+			(ext '(-2.8 . 2.8))) ;; todo: take line-count into account
+		 (ly:bracket Y ext th (- width))))
 
 rightBracket = {
-\once\override BreathingSign #'text = #(make-right-bracket-markup)
-\once\override BreathingSign #'Y-offset = ##f
-\breathe
+	\once\override BreathingSign #'text = #(make-right-bracket-markup)
+	\once\override BreathingSign #'Y-offset = ##f
+	\breathe
 }
 
 \paper {
@@ -70,7 +70,7 @@ rightBracket = {
 			}
 			\draw-hline
 		}
-		
+
 	}
 	evenHeaderMarkup = \markup {
 		\column {
@@ -128,7 +128,7 @@ fA = \relative c' {
 	%R1 | R1 | R1 | r4 e ~ e4. d8->-. |
 	R1 | R1 | r2 e8-. e-. r4 | r2 e8-. e-. r4 |
 	R1 | R1 | r2 e8-. e-. r4 | r2 e8-. e-. r4 |
-	cis4. cis8 ~ cis e gis-. fis ~ | fis4 r r2 | cis4. cis8 ~ cis e gis-. fis ~ | fis4 r r2 | 
+	cis4. cis8 ~ cis e gis-. fis ~ | fis4 r r2 | cis4. cis8 ~ cis e gis-. fis ~ | fis4 r r2 |
 	R1 | b,4. d8 ~ d4  fis | f2. r8 cis ~ | cis cis dis e f4-. r |
 	r4 \leftBracket a,8 a a a a a ~ | a gis fis4 r2 | r4 a8 a a a a a ~ | a e d4 r2 |
 	cis4 e gis a8 b ~ | b4 a gis a8 b ~ | b4. b8 ~ b2 \rightBracket | R1 |
@@ -187,7 +187,7 @@ fC = \relative c'{
 	fis,8( fis-.) r fis8( fis-.) r fis8( fis-.) | r fis8( fis-.) r fis8( fis-.) r e( ~ | e e-.) r e e r e e | r d d r d e b d |
 	cis4 e e fis8 gis ~ | gis4 fis eis eis8 fis ~ | fis2 r2 | R1 |
 	R1 | R1 | R1 |
-} 
+}
 fClyric = \lyricmode {
 	\set ignoreMelismata = ##t
 	\override Lyrics . LyricText #'font-name = "IPAex明朝"
@@ -249,7 +249,7 @@ mAlyric = \lyricmode {
 mB = \relative c {
 	\key a \major
 	d1( ~ | d | cis | b) |
-	a'4 gis fis e8 b ~ | b4 cis d cis8 fis ~ | 
+	a'4 gis fis e8 b ~ | b4 cis d cis8 fis ~ |
 	fis2. ~ fis8 e ~ | e d d2. | fis2. ~ fis8 e ~ | e d d2. |
 	fis2. ~ fis8 e ~ | e d d2. | b8 b r cis cis r d d | r e r4 e8 r r d |
 	%d4-. d-. d-. d-. | d d d d | e e e e | e4 e e8 e e e |
@@ -288,7 +288,7 @@ mBlyric = \lyricmode {
 					\new Voice = "VoiceFemale1" \fA
 				>>
 				\new Lyrics = "LyricsFemale1"
-				
+
 				\new Staff = "Female2" <<
 					\set Staff.instrumentName = "Female II"
 					\set Staff.midiInstrument = "flute"
@@ -296,7 +296,7 @@ mBlyric = \lyricmode {
 					\new Voice = "VoiceFemale2" \fB
 				>>
 				\new Lyrics = "LyricsFemale2"
-				
+
 				\new Staff = "Female3" <<
 					\set Staff.instrumentName = "Female III"
 					\set Staff.midiInstrument = "clarinet"
@@ -304,7 +304,7 @@ mBlyric = \lyricmode {
 					\new Voice = "VoiceFemale3" \fC
 				>>
 				\new Lyrics = "LyricsFemale3"
-				
+
 				\new Staff = "Female4" <<
 					\set Staff.instrumentName = "Female IV"
 					\set Staff.midiInstrument = "clarinet"
