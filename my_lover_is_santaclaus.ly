@@ -6,12 +6,48 @@
 \version "2.16.0"
 \include "articulate.ly"
 
+
+% The below, invented by Mats Bengtsson, creates left and right brackets vertically 
+% spanning an entire staff. It is useful for offseting optional passages of music,
+% as shown in the example
+
+% The number next to "th" in (th 0.2) controls thickness of the brackets. 
+#(define-markup-command (left-bracket layout props) ()
+"Draw left hand bracket"
+(let* ((th 0.2) ;; todo: take from GROB
+	(width (* 2.5 th)) ;; todo: take from GROB
+	(ext '(-2.8 . 2.8))) ;; todo: take line-count into account
+	(ly:bracket Y ext th width)))
+
+leftBracket = {
+\once\override BreathingSign #'text = #(make-left-bracket-markup)
+\once\override BreathingSign #'break-visibility = #end-of-line-invisible
+\once\override BreathingSign #'Y-offset = ##f
+% Trick to print it after barlines and signatures:
+\once\override BreathingSign #'break-align-symbol = #'custos
+\breathe 
+}
+
+
+#(define-markup-command (right-bracket layout props) ()
+"Draw right hand bracket"
+(let* ((th .2);;todo: take from GROB
+(width (* 2.5 th)) ;; todo: take from GROB
+	(ext '(-2.8 . 2.8))) ;; todo: take line-count into account
+	(ly:bracket Y ext th (- width))))
+
+rightBracket = {
+\once\override BreathingSign #'text = #(make-right-bracket-markup)
+\once\override BreathingSign #'Y-offset = ##f
+\breathe
+}
+
 \paper {
 	bookTitleMarkup = \markup {
 		\column {
 			\fill-line {
-				"Revision 1"
-				"2013/12/1"
+				"Revision 3 (WIP)"
+				"2013/12/5"
 			}
 			\fill-line {
 				\override #'(font-name . "IPAex明朝")
@@ -58,11 +94,17 @@
 }
 
 chord = \chordmode {
+	\tempo 4=100
+	d1:maj7 | s | a:maj9/cis | b:m7 |
+	%a4 e fis:m9 a8:maj9/e b:m | s4 a:maj9/cis e:11/d cis8:7 fis:m |
+	a | b2:m7 cis:m7 \bar "||"
 	\tempo 4=150
-	d1 | s | e | s |
-	d | s | e | s |
-	cis:m | fis:m | cis:m | fis:m |
-	b:m | d | g | e |
+	fis2..:m e8 | s d2..:maj7 | fis2..:m e8 | s d2..:maj7 |
+	fis2..:m e8 | s d2..:maj7 | b4. cis4.:m d4 | s8 e s2. |
+	%d1 | s | e | s |
+	%d | s | e | s |
+	%cis:m | fis:m | cis:m | fis:m |
+	%b:m | d | g | e |
 	d1 | s | e | s |
 	d | s | e | s |
 	cis:m | fis:m | cis:m | fis:m |
@@ -70,24 +112,29 @@ chord = \chordmode {
 	d | s | a/cis | b:m7 |
 	a | b/a | gis:m | cis:7 |
 	d | s | a/cis | b:m7 |
-	a | b2:m7 cis:m7 | fis1:m | e2 a |
-	d2.. s8 | s4 s s s8 s |
+	a | b2:m7 cis:m7 | fis1:m | s2 s |
+	a1 | b2:m7 cis:m7 | fis1:m \bar "|."
 }
 
 fA = \relative c' {
 	\key a \major
-	R1 | R1 | r2 e'8-. e-. r4 | r2 e8-. e-. r4 |
-	R1 | R1 | r2 e8-. e-. r4 | r2 e8-. e-. r4 |
-	R1 | R1 | R1 | R1 |
-	R1 | R1 | R1 | r4 e ~ e4. d8->-. |
+	cis'1^\markup {\italic"Freely"}( ~ | cis | b | a) |
+	\leftBracket cis,4 e gis a8 b ~ | b4 a gis a8 a ~ |
+	a4^\markup {\italic"Actively"} \rightBracket r r2 | R1 | a2. ~ a8 gis ~ | gis fis fis2. |
+	r4 cis8 b b cis r4 | R1 | R1 | r8 e' r4 e8 e r d->-. |
+	%R1 | R1 | r2 e'8-. e-. r4 | r2 e8-. e-. r4 |
+	%R1 | R1 | r2 e8-. e-. r4 | r2 e8-. e-. r4 |
+	%R1 | R1 | R1 | R1 |
+	%R1 | R1 | R1 | r4 e ~ e4. d8->-. |
 	R1 | R1 | r2 e8-. e-. r4 | r2 e8-. e-. r4 |
 	R1 | R1 | r2 e8-. e-. r4 | r2 e8-. e-. r4 |
 	cis4. cis8 ~ cis e gis-. fis ~ | fis4 r r2 | cis4. cis8 ~ cis e gis-. fis ~ | fis4 r r2 | 
 	R1 | b,4. d8 ~ d4  fis | f2. r8 cis ~ | cis cis dis e f4-. r |
-	r4 a,8 a a a a a ~ | a gis fis4 r2 | r4 a8 a a a a a ~ | a e d4 r2 |
-	cis4 e gis a8 b ~ | b4 a gis a8 b ~ | b4. b8 ~ b2 | R1 |
+	r4 \leftBracket a,8 a a a a a ~ | a gis fis4 r2 | r4 a8 a a a a a ~ | a e d4 r2 |
+	cis4 e gis a8 b ~ | b4 a gis a8 b ~ | b4. b8 ~ b2 \rightBracket | R1 |
 	fis'1 ~ | fis2 ~ fis8 e d cis ~ | cis2 cis8 b cis d ~ | d2 \times 2/3 { fis4 b, d } |
 	cis2. ~ cis8 gis' ~ | gis4 fis eis4. fis8 ~ | fis2 r2 | R1 |
+	\leftBracket cis,4 e gis a8 b ~ | b4 a gis a8 a ~ | a2. \rightBracket r4 |
 }
 fAlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -97,10 +144,14 @@ fAlyric = \lyricmode {
 
 fB = \relative c' {
 	\key a \major
-	R1 | R1 | R1 | R1 |
-	R1 | R1 | R1 | r2 r4 cis8 e |
-	e4 r r2 | fis4 gis8 fis ~ fis e cis e | e4 r r2  | fis4 gis8 fis ~ fis e cis e |
-	b2. r4 | cis4 b a8 b4 b8 ~ | b2 r2 | r4 r8 d' ~ d4. d8->-. |
+	fis1( ~ | fis | e | d) |
+	cis4 e e e8 fis ~ | fis4 e e f8 e |
+	r4 cis'8 b b cis r4 | R1 | r4 cis8 b b cis r4 | R1 |
+	a2. ~ a8 gis ~ | gis fis fis2. | R1 | r8 b r4 b8 b r a->-. |
+	%R1 | R1 | R1 | R1 |
+	%R1 | R1 | R1 | r2 r4 cis8 e |
+	%e4 r r2 | fis4 gis8 fis ~ fis e cis e | e4 r r2  | fis4 gis8 fis ~ fis e cis e |
+	%b2. r4 | cis4 b a8 b4 b8 ~ | b2 r2 | r4 r8 d' ~ d4. d8->-. |
 	R1 | R1 | R1 | R1 |
 	R1 | R1 | R1 | R1 |
 	cis,8-. cis-. e-. cis-. gis'-. r r4 | R1 | cis,8-. cis-. e-. cis-. gis'-. r r4 | R1 |
@@ -108,7 +159,8 @@ fB = \relative c' {
 	r4 d8 d d d d d ~ | d cis b4 r2 | r4 cis8 cis cis cis cis cis ~ | cis b a4 r4 gis8( a) |
 	a4 cis e cis8 dis ~ | dis4 cis b cis8 dis ~ | dis4. dis8 ~ dis2 | R1 |
 	R1 | r4 r8 e a e b' a ~ | a4 r r2 | r4 r8 cis ~ cis a e d |
-	cis4 e gis a8 b ~ | b4 a gis a8 a ~ | a2 r | R1 |
+	\leftBracket cis4 e gis a8 b ~ | b4 a gis a8 a ~ | a2 \rightBracket r | R1 |
+	R1 | R1 | R1 |
 }
 fBlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -118,18 +170,23 @@ fBlyric = \lyricmode {
 
 fC = \relative c'{
 	\key a \major
+	r4 \leftBracket a'8 a a a a a ~ | a gis fis4 r2 | r4 a8 a a a a a ~ | a e d4 \rightBracket r2 |
+	cis4 cis cis cis8 d ~ | d4 cis e8( d) cis e ~ |
+	e2. ~ e8 e8 ~ | e d d2. | e2. ~ e8 e8 ~ | e d d2. |
+	e2. ~ e8 e8 ~ | e d d2. | b8 b r cis cis r d d | r e r4 e8 e r d->-. |
+	%R1 | R1 | R1 | R1 |
+	%R1 | R1 | R1 | R1 |
+	%cis8-. cis-. e-. cis-. gis'-. r r4 | R1 | cis,8-. cis-. e-. cis-. gis'-. r r4 | R1 |
+	%b,8 b d b fis' r r4 | a,8 a d a fis' r r4 | b,8 b d b g' r g e ~ | e r r4 b'4. a8->-. |
 	R1 | R1 | R1 | R1 |
-	R1 | R1 | R1 | R1 |
-	cis8-. cis-. e-. cis-. gis'-. r r4 | R1 | cis,8-. cis-. e-. cis-. gis'-. r r4 | R1 |
-	b,8 b d b fis' r r4 | a,8 a d a fis' r r4 | b,8 b d b g' r g e ~ | e r r4 b'4. a8->-. |
-	R1 | R1 | R1 | R1 |
-	R1 | R1 | R1 | r2 r4 cis,8 e |
+	R1 | R1 | R1 | r2 r4 \leftBracket cis8 e |
 	e4 r r2 | fis4 gis8 fis ~ fis e cis e | e4 r r2  | fis4 gis8 fis ~ fis e cis e |
-	b2. r4 | cis4 b a8 b4 cis8 ~ | cis2. r4 | R1 |
+	b2. r4 | cis4 b a8 b4 cis8 ~ | cis2. \rightBracket r4 | R1 |
 	R1 | r4 r8 e a e b' a ~ | a4 r r2 | r4 r8 cis ~ cis a e d |
 	cis4 r r2 | R1 | r2 r4 r8 cis' ~ | cis cis dis e f4-. r |
 	fis,8( fis-.) r fis8( fis-.) r fis8( fis-.) | r fis8( fis-.) r fis8( fis-.) r e( ~ | e e-.) r e e r e e | r d d r d e b d |
 	cis4 e e fis8 gis ~ | gis4 fis eis eis8 fis ~ | fis2 r2 | R1 |
+	R1 | R1 | R1 |
 } 
 fClyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -139,11 +196,15 @@ fClyric = \lyricmode {
 
 fD = \relative c'{
 	\key a \major
-	r8 d d d fis fis e e | d cis b a b cis4 b8 ~ | b4. gis16 fis e2 ~ | e4 r4 r2 |
-	r8 d' d d fis fis e e | d cis b a b cis8 r b8 ~ | b4 r r2 | R1 |
-	R1 | R1 | R1 | R1 |
-	R1 | R1 | R1 | r2 r8 a'4 d8->-. |
-	R1 | R1 | e,8-. e-. r4 e8-. e-. r4 | e8-. e-. r4 e8-. e-. r4 |
+	r4 d8 d d d d d ~ | d cis b4 r2 | r4 cis8 cis cis cis cis cis ~ | cis b a4 r4 gis8( a) |
+	a4 cis cis b8 b ~ | b4 b b b8 cis ~ |
+	cis2. ~ cis8 gis8 ~ | gis a a2. | cis2. ~ cis8 gis8 ~ | gis a a2. |
+	\leftBracket b8 cis fis b, cis fis b, cis | fis b, cis fis b, cis fis b, \rightBracket | cis fis b, cis fis b, cis fis | r a r4 a8 a r fis->-. |
+	%r8 d d d fis fis e e | d cis b a b cis4 b8 ~ | b4. gis16 fis e2 ~ | e4 r4 r2 |
+	%r8 d' d d fis fis e e | d cis b a b cis8 r b8 ~ | b4 r r2 | R1 |
+	%R1 | R1 | R1 | R1 |
+	%R1 | R1 | R1 | r2 r8 a'4 d8->-. |
+	R1 | R1 | e8-. e-. r4 e8-. e-. r4 | e8-. e-. r4 e8-. e-. r4 |
 	R1 | R1 | e8-. e-. r4 e8-. e-. r4 | e8-. e-. r4 r cis8 e |
 	cis4 r r2 | cis4 e8 fis ~ fis e cis e | cis4 r r2 | cis4 e8 fis ~ fis e cis e |
 	b2. r4 | g4 g a8 b4 cis8 ~ | cis2. r4 | R1 |
@@ -151,6 +212,7 @@ fD = \relative c'{
 	cis4) r r2 | R1 | r2 r4 r8 cis ~ | cis cis dis e f4-. r |
 	r4 d8 d d d d d ~ | d cis b4 r2 | r4 cis8 cis cis cis cis cis ~ | cis b a4 r4 gis8( a) |
 	a4 cis e cis8 d ~ | d4 cis b cis8 cis ~ | cis2 r | R1 |
+	R1 | R1 | R1 |
 }
 fDlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -160,18 +222,23 @@ fDlyric = \lyricmode {
 
 mA = \relative c {
 	\key a \major
-	R1 | R1 | e'8-. e-. r4 e8-. e-. r4 | e8-. e-. r4 e8-. e-. r4 |
-	R1 | R1 | e8-. e-. r4 e8-. e-. r4 | e8-. e-. r4 e8-. e-. r4 |
-	R1 | R1 | R1 | R1 |
-	R1 | R1 | R1 | r2 r4 b8 a->-. |
-	r8 d d d fis fis e e | d cis b a b cis4 b8 ~ | b4. gis16 fis e2 ~ | e4 r4 r2 |
-	r8 d' d d fis fis e e | d cis b a b cis8 r b8 ~ | b4 r r2 | R1 |
+	a'1( ~ | a | gis | fis) |
+	a4 gis a a8 fis ~ | fis4 a a gis8 \leftBracket b |
+	cis fis b, cis fis b, cis fis | b, cis fis b, cis fis b, cis | fis b, cis fis b, cis fis b, | cis fis b, cis fis b, cis fis \rightBracket |
+	cis2. ~ cis8 gis8 ~ | gis a a2. | fis8 fis r gis gis r a a | r b r4 b8 b r a->-. |
+	%R1 | R1 | e'8-. e-. r4 e8-. e-. r4 | e8-. e-. r4 e8-. e-. r4 |
+	%R1 | R1 | e8-. e-. r4 e8-. e-. r4 | e8-. e-. r4 e8-. e-. r4 |
+	%R1 | R1 | R1 | R1 |
+	%R1 | R1 | R1 | r2 r4 b8 a->-. |
+	r8 \leftBracket d d d fis fis e e | d cis b a b cis4 b8 ~ | b4. gis16 fis e2 ~ | e4 r4 r2 |
+	r8 d' d d fis fis e e | d cis b a b cis8 r b8 ~ | b4 \rightBracket r r2 | R1 |
 	R1 | R1 | R1 | R1 |
 	fis1( | g | gis2. ~ gis8) gis ~ | gis gis r gis cis4-. r |
 	r4 fis,8 fis fis fis fis fis ~ | fis e fis4 r2 | r4 e8 e e e e e ~ | e e b'4 r2 |
 	a1( | b2. a4 | gis4.) gis8 ~ gis dis' fis eis ~ | eis4. gis8 ~ gis4 r |
-	r4 a,8 a a a a a ~ | a gis fis4 r2 | r4 a8 a a a a a ~ | a e d4 r2 |
-	cis4 e gis a8 b ~ | b4 a gis a8 a ~ | a2 r | R1 |
+	r4 \leftBracket a,8 a a a a a ~ | a gis fis4 r2 | r4 a8 a a a a a ~ | a e d4 \rightBracket r2 |
+	\leftBracket cis4 e gis a8 b ~ | b4 a gis a8 a ~ | a2 \rightBracket r | R1 |
+	R1 | R1 | R1 |
 }
 mAlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -181,10 +248,14 @@ mAlyric = \lyricmode {
 
 mB = \relative c {
 	\key a \major
-	d4-. d-. d-. d-. | d d d d | e e e e | e4 e e8 e e e |
-	d4 d d d | d d d d | e e e e | e4 e e8 e e16 e e e |
-	cis4. cis8 cis4 r | fis,4 cis'8 fis ~ fis fis cis fis | cis4. cis8 cis4 r | fis,4 cis'8 fis ~ fis fis cis fis |
-	b,4. b8 b4 r | d4. d8 d4 r | g,4 g8 d' g fis f e ~ | e e e e e e e d |
+	d1( ~ | d | cis | b) |
+	a'4 gis fis e8 b ~ | b4 cis d cis8 fis ~ | 
+	fis2. ~ fis8 e ~ | e d d2. | fis2. ~ fis8 e ~ | e d d2. |
+	fis2. ~ fis8 e ~ | e d d2. | b8 b r cis cis r d d | r e r4 e8 r r d |
+	%d4-. d-. d-. d-. | d d d d | e e e e | e4 e e8 e e e |
+	%d4 d d d | d d d d | e e e e | e4 e e8 e e16 e e e |
+	%cis4. cis8 cis4 r | fis,4 cis'8 fis ~ fis fis cis fis | cis4. cis8 cis4 r | fis,4 cis'8 fis ~ fis fis cis fis |
+	%b,4. b8 b4 r | d4. d8 d4 r | g,4 g8 d' g fis f e ~ | e e e e e e e d |
 	r4 d d d | d d d d | e e e e | e4 e e8 e e e |
 	d4 d d d | d d d d | e e e e | e4 e e8 e e16 e e e |
 	cis4. gis'8 ~ gis4 cis, | fis,4 cis'8 fis ~ fis fis cis fis | cis4. gis'8 ~ gis4 cis, | fis,4 cis'8 fis ~ fis fis cis fis |
@@ -193,6 +264,7 @@ mB = \relative c {
 	a4 a a a | a a a8 b a gis ~ | gis4 gis gis gis8-. cis ~ | cis cis dis e f cis e d ~ |
 	d d d( a-.) d( a-.) d( a-.) | d a d a e' a, d a | cis a cis a cis d cis b ~ | b b fis b b fis' b, d |
 	a4 a a a | b2 cis | fis1 | R1 |
+	R1 | R1 | R1 |
 }
 mBlyric = \lyricmode {
 	\set ignoreMelismata = ##t
