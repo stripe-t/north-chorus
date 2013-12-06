@@ -23,7 +23,7 @@
 		}
 	}
 	oddHeaderMarkup = \markup {
-		\column {
+		\override #'(baseline-skip . 1) \column {
 			\fill-line {
 				\fontsize #-1 \fromproperty #'page:page-number-string \null
 			}
@@ -33,7 +33,7 @@
 		
 	}
 	evenHeaderMarkup = \markup {
-		\column {
+		\override #'(baseline-skip . 1) \column {
 			\fill-line {
 				\null \fontsize #-1 \fromproperty #'page:page-number-string
 			}
