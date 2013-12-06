@@ -184,7 +184,7 @@ mBlyric = \lyricmode {
 					}
 				}
 				\context Lyrics = "LyricsFemale4" {
-					\lyricsto "VoiceFelame4" {
+					\lyricsto "VoiceFemale4" {
 						\fDlyric
 					}
 				}
