@@ -54,8 +54,8 @@ t = #(define-music-function
 	bookTitleMarkup = \markup {
 		\column {
 			\fill-line {
-				"Revision 1 (Ported Revision)"
-				"2013/11/28"
+				"Revision 2 (WIP)"
+				"2013/12/16"
 			}
 			\fill-line {
 				\override #'(font-name . "IPAex明朝")
