@@ -132,14 +132,14 @@ fA = \relative c' {
 	bes2 a | a bes8 bes bes bes ~ | bes bes bes bes ~ bes4 r | bes4 a bes c ~ |
 	c2. r4 |
 	
-	f,1 | f | g2 f4 ~ \t{f8 ees16 d8 ees16 ~ } | ees1 |
-	g2 a | f4 f d c | ees2. g4 | a1 |
+	f1 | f | g2 f4 ~ \t{f8 ees16 d8 ees16 ~ } | ees1 |
+	g2 f | f4 c d a | bes2. ees4 | f1 |
 	d,8 ~ \t {d8 d16 d8 d16 d8 d16 d8 d16 ees8 f16 } r8 \t {r8 d16} | \t {d8 d16 d8 d16 d8 d16 d8 d16 d8 d16 ees8 f16} r4 |
-	\t {d8 d16 d8 d16 d8 d16 d8 d16 f8 f16 f8 f16 ~ f8 ees16 d8 ees16 ~ } | ees8 r r4 r2 |
-
-	
-	\set stemRightBeamCount = #0
-	%\tuplet 3/2 4 {c4 c8[] c4 c8[] c4 c8[] c4 c8[]}
+	\t {d8 d16 d8 d16 d8 d16 d8 d16 f8 f16 f8 f16 ~ f8 ees16 d8 ees16 ~ } | ees8 r r4 g8 f g bes |
+	ees2 c | bes4 c d f | ees1 | f2. r4 |
+	ees4 d c bes |
+	bes4 bes8 ~ \t {bes8 bes16 r8[ bes16 r8 bes16]} bes4 | a4 a8 ~ \t {a8 a16 r8[ a16 r8 a16]} a4 |
+	b4 b8 ~ \t {b8 b16 r8[ d16 r8 d16]} d4 | bes4 bes8 ~ \t {bes8 bes16 r8[ bes16 r8 bes16]} bes4
 }
 fAlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -160,6 +160,11 @@ fB = \relative c' {
 	a2. r4 |
 	bes2. d4 | d2. d4 | b1 | g2 ~ g8 f ees d |
 	ees2 f | d'4 c bes f | g2. bes4 | c2 ~ c8 c d ees |
+	d1 | d | d4 b f' d | ees1 |
+	bes2 a | f4 a bes c | bes1 | c2. r4 |
+	bes4 bes a a |
+	d4 \t {d8 d16 d8 d16 d8 d16 ees8 f16 r8[ bes,16 bes8 bes16]} | \t {d8 d16 d8 d16 d8 d16 d8 d16 d8 d16 ees8 f16} r4 |
+	\t {d8 d16 d8 d16 d8 d16 d8 d16 f8 f16 f8 f16 ~ f8 ees16 d8 ees16 ~ } | ees8 r r4 r2 |
 }
 fBlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -174,13 +179,19 @@ fC = \relative c'{
 	ees | c2 d8 a' g f | ees2 d | g8 f ees d c2 |
 	f2.\fermata r4 |
 	d4. d8 ~ d4 d | d4. d8 ~ d4 d | d4. d8 ~ d4 d | d4. d8 ~ d4 d |
-	ees4 ees8 bes' ~ bes a g f | ees d g c ~ c a f ees | d4 d8 d ~ d ees f f ~ | f4 r8 g g a bes bes ~ |
-	bes a a r f g a a ~ | a bes g r g a bes bes ~ | bes bes g bes a bes c c ~ | c ees d bes ~ bes2 |
+	%{ TODO: change %}ees4 ees8 bes' ~ bes a g f | ees d g c ~ c a f ees | d4 d8 d ~ d ees f f ~ | f4 r8 g g a bes bes ~ |
+	bes a a r f g a a ~ | a bes g r g a bes bes ~ | bes bes g bes a bes c c ~ | c ees d bes ~ bes4 r4 |
 	g4 g a a | f f f8 f f f | ees ees ees ees ~ ees ees f g | g4 f f f |
 	a8. a16 r8 a8 ~ a16 a8. a8 f |
 	d4 \t {d8 d16 d8 d16 d8 d16 ees8 f16 r8[ bes,16 bes8 bes16]} | \t {d8 d16 d8 d16 d8 d16 d8 d16 d8 d16 ees8 f16} r4 |
 	\t {d8 d16 d8 d16 d8 d16 d8 d16 f8 f16 f8 f16 ~ f8 ees16 d8 ees16 ~ } | ees8 r r4 r2 |
-	
+	g2 a | f4 f d c | ees2. g4 | a2 ~ a8 a bes g |
+	f1 | f | f2 aes2 | g1 |
+	d4 \t {d8 d16 ees8 ees16 r8[ ees16 ees8 ees16] ees8 g16 f8 a,16} | bes8 \t {bes8 bes16 d8 f16 f8 g16 ~ } g8 r r \t {r g16} |
+	\t {g8 g16 g8 g16 g8 g16 g8 g16 g8 g16 g8 g16 g8 a16 bes8 a16 ~ } | a2. r4 |
+	g4 f ees f |
+	f4 f8 ~ \t {f8 f16 r8[ f16 r8 f16]} f4 | f4 f8 ~ \t {f8 f16 r8[ f16 r8 f16]} f4 |
+	g4 g8 ~ \t {g8 g16 r8[ f16 r8 f16]} f4 | g4 g8 ~ \t {g8 g16 r8[ g16 r8 g16]} g4 |
 }
 fClyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -199,11 +210,14 @@ fD = \relative c'{
 	d8 ees c r a bes c c ~ | c bes bes r bes c d d ~ | d c c c c c ees ees ~ | ees d d r r2 |
 	ees4 ees f f | d d d8 d d d ~ | d d d d ~ d8 c d ees | d4 c d ees |
 	f8. f16 r8 f ~ f16 f8. f8 ees |
-	s1*4 |
-		\t {bes8 bes16 bes8 bes16 bes8 bes16 c8 c16 ~ } c8 r \t {r8[ f,16 f8 f16] } | d'8 \t {d8 ees16 d8 a16 a8 bes16 ~ } bes8 r \t {r8[ bes16 bes8 bes16]} |
+	d1 | f | f | ees |
+	\t {bes8 bes16 bes8 bes16 bes8 bes16 c8 c16 ~ } c8 r \t {r8[ f,16 f8 f16] } | d'8 \t {d8 ees16 d8 a16 a8 bes16 ~ } bes8 r \t {r8[ bes16 bes8 bes16]} |
 	\t {bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16} c8 \t {bes8 c16 ~ } | c8 r r4 r2 |
-
-
+	bes'2 ~ bes4. \t {a8 bes16} | a2 ~ a4. \t {a8 bes16} | g2 f4. \t {f8 g16} | ees1 |
+	g2 f | bes4 f g c, | ees1 | f2. r4 |
+	ees4 f ees c |
+	d4 d8 ~ \t {d8 d16 r8[ d16 r8 d16]} d4 | c4 c8 ~ \t {c8 c16 r8[ c16 r8 c16]} c4 |
+	d4 d8 ~ \t {d8 d16 r8[ d16 r8 d16]} d4 | ees4 ees8 ~ \t {ees8 ees16 r8[ ees16 r8 ees16]} ees4 |
 }
 fDlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -223,12 +237,14 @@ mA = \relative c {
 	bes bes ees ees | c c bes8 bes bes bes ~ | bes bes bes bes ~ bes4 r | bes a bes c |
 	ees8. ees16 r8 ees8 ~ ees16 ees8. d8 c |
 	d1 | d | d | bes |
-	ees2 ees | bes'4 a g f | ees1 | f |
-	s1*4
-	bes,4 \t {bes8 bes16 c8 c16 } \t {r8[ f,16 f8 f16] r8[ f16 f8 f16]} | d'8 \t {ees8 ees16 d8 a16 a8 bes16 ~ } bes8 r r \t {r8[ bes16]} |
-	\t {bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 c8 c16 ~ } | c2 r |
-	% again(once) and outro
-	r \t {r8[ bes16 bes8 bes16]} a8 bes ~ | bes2. r4 |
+	bes2 c | d4 c bes a | bes1 | c |
+	bes8 ~ \t {bes bes16 bes8 bes16 bes8 bes16 bes8 bes16 c8 d16} r8 \t {r bes16} | \t {a8 a16 a8 a16 a8 a16 a8 a16 a8 a16 c8 d16} r4 |
+	\t {b8 b16 b8 b16 b8 b16 b8 b16 g8 g16 g8 g16 g8 g16 b8 c16 ~ } | c8 r r4 r2 |
+	bes4 \t {bes8 bes16 c8 c16 } \t {r8[ f,16 f8 f16] r8[ f16 f8 f16]} | d'8 \t {ees8 ees16 d8 a16 a8 bes16 ~ } bes8 r r \t {r8[ bes16]} |
+	\t {bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 c8 c16 ~ } | c2. r4 |
+	ees4 d c ees |
+	f,4 f8 ~ \t {f f16 r8[ f16 r8 f16] r8[ f16 ~} f8] | f4 f8 ~ \t {f f16 r8[ f16 r8 f16] r8[ f16 ~} f8] |
+	f4 f8 ~ \t {f f16 r8[ f16 r8 f16] r8[ f16 ~} f8 | g4 g8[ ~ \t {g g16 r8[ g16 r8 g16] r8[ g16 ~} g8] |
 }
 mAlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -247,7 +263,12 @@ mB = \relative c {
 	ees4. ees8 f4. f8 | d4. d8 g8 g g g( | ees) ees ees ees ~ ees4 r | ees ees ees f |
 	f f f f |
 	bes1 | a | g | c, |
-
+	ees2 f | bes4 a g f | ees1 | f |
+	bes,1 | a | g2 b | c1 |
+	ees2 ees | bes4 a g f' | ees1 | f2. r4 |
+	ees4 ees ees f |
+	bes,4 bes8 ~ \t {bes8 bes16 r8[ bes16 r8 bes16]} f'8 bes, | a4 a8 ~ \t {a8 a16 r8[ a16 r8 a16]} f'8 a, |
+	g4 g8 ~ \t {g8 g16 r8[ g16 r8 g16]} f'8 g, | c4 c8 ~ \t {c8 c16 r8[ c16 r8 c16]} g'8 c,
 }
 mBlyric = \lyricmode {
 	\set ignoreMelismata = ##t
