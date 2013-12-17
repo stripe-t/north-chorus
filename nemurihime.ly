@@ -55,7 +55,7 @@ t = #(define-music-function
 		\column {
 			\fill-line {
 				"Revision 2 (WIP)"
-				"2013/12/16"
+				"2013/12/18"
 			}
 			\fill-line {
 				\override #'(font-name . "IPAex明朝")
