@@ -45,17 +45,26 @@ t = #(define-music-function
      (ly:music?)
    #{
 	 \set Timing.baseMoment = #(ly:make-moment 1/8)
+	 %\set Timing.beatStructure = #'(2 2 2 2)
+	 %\set Timing.beamExceptions = #'()
      \tuplet 3/2 8 {
 		 #note
 	 }
 	 \unset Timing.baseMoment
+	 %\unset Timing.beatStructure
+	 %\unset Timing.beamExceptions
    #})
 \paper {
+	page-count = #4
+	%system-count = #18
+	system-system-spacing = #'((basic-distance . 1) (padding . 0.5))
+	ragged-last-bottom = ##f
+	ragged-bottom = ##f
 	bookTitleMarkup = \markup {
 		\column {
 			\fill-line {
-				"Revision 2 (WIP)"
-				"2013/12/18"
+				"Revision 2"
+				"2013/12/21"
 			}
 			\fill-line {
 				\override #'(font-name . "IPAex明朝")
@@ -117,29 +126,40 @@ chord = \chordmode {
 	ees2 f/ees | bes4 f/a g:m f | ees1 | f |
 	bes | d:m/a | g2 g:7 | c1:m7 |
 	ees2 f/ees | bes4 f/a g:m f | ees1 | f |
+	s |
+	bes | d:m/a | g2 g:7 | c1:m7 |
+	ees2 f/ees | bes4 f/a g:m f | ees1 | f |
+	s |
+	ees2 f/ees | d:m g:7 | c:m d:m | ees4:maj7 \set Score.tempoHideNote = ##t \tempo 4=90 ees2 \tempo 4=80 f4 |
+	\tempo 4=70 bes1 \bar "|."
 }
 
 fA = \relative c' {
 	\override TupletBracket.bracket-visibility = ##f
 	\key bes \major
-	bes'1\fermata |
-	g4 bes a8 g f ees | f2 g8 f ees d | ees d c4 f8 ees d4 | ees'8 d c bes a bes a f |
-	c'2.\fermata s4
+	 bes'1\fermata^\markup {\italic"Quietly"} |
+	\leftBracket g4 bes a8 g f ees | f2 g8 f ees d | ees d c4 f8 ees d4 \rightBracket | ees'8 d c bes a bes a f |
+	c'2.\fermata r4
 	bes4. bes8 ~ bes4 bes | a4. a8 ~ a4 a | bes4. bes8 ~ bes4 bes | bes4. bes8 ~ bes8 a bes c |
 	
-	bes4. f8 ~ f4 f | bes4. a8 ~ a4 f | bes8 a bes c ~ c bes c d ~ | d c d ees ees2 |
+	bes4. f8 ~ f4 f | bes4. a8 ~ a4 f | bes8 a bes c ~ c bes c d ~ | d c d ees^\markup {\italic"Liven up gradually"} ~ ees2 |
 	d2 c | c4 bes8 a bes2 | bes a | c bes |
-	bes2 a | a bes8 bes bes bes ~ | bes bes bes bes ~ bes4 r | bes4 a bes c ~ |
-	c2. r4 |
+	bes2 a | a \leftBracket bes8 bes bes bes ~ | bes bes bes bes ~ bes4 r | bes4 a bes c ~ |
+	c2. \rightBracket r4 |
 	
-	f1 | f | g2 f4 ~ \t{f8 ees16 d8 ees16 ~ } | ees1 |
+	f1^\markup {\italic"Softly, legato"} ~ | f | g2 f4 ~ \t{f8 ees16 d8 ees16 ~ } | ees1 |
 	g2 f | f4 c d a | bes2. ees4 | f1 |
-	d,8 ~ \t {d8 d16 d8 d16 d8 d16 d8 d16 ees8 f16 } r8 \t {r8 d16} | \t {d8 d16 d8 d16 d8 d16 d8 d16 d8 d16 ees8 f16} r4 |
-	\t {d8 d16 d8 d16 d8 d16 d8 d16 f8 f16 f8 f16 ~ f8 ees16 d8 ees16 ~ } | ees8 r r4 g8 f g bes |
-	ees2 c | bes4 c d f | ees1 | f2. r4 |
-	ees4 d c bes |
-	bes4 bes8 ~ \t {bes8 bes16 r8[ bes16 r8 bes16]} bes4 | a4 a8 ~ \t {a8 a16 r8[ a16 r8 a16]} a4 |
-	b4 b8 ~ \t {b8 b16 r8[ d16 r8 d16]} d4 | bes4 bes8 ~ \t {bes8 bes16 r8[ bes16 r8 bes16]} bes4
+	\leftBracket d,8 ~ \t {d8 d16 d8 d16 d8 d16 d8 d16 ees8 f16 } r8 \t {r8 d16} | \t {d8 d16 d8 d16 d8 d16 d8 d16 d8 d16 ees8 f16} r4 |
+	\t {d8 d16 d8 d16 d8 d16 d8 d16 f8 f16 f8 f16 ~ f8 ees16 d8 ees16 ~ } | ees8 \rightBracket r r4 g8 f g bes |
+	ees2 c | bes4( c d f) | ees1 | f2. r4 |
+	\leftBracket ees4--^\markup {\italic"Cheerfully"} d-- c-- bes-- \rightBracket |
+	bes4 \t {bes8 bes16 bes8 bes16 bes8 bes16 c8 d16 r8[ f,16 f8 f16]} | \t {a8 a16 a8 a16 a8 a16 a8 a16 a8 a16 c8 d16} r4 |
+	\t {b8 b16 b8 b16 b8 b16 b8 b16 d8 d16 d8 d16 ~ d8 g,16 b8 c16 ~ } | c8 \parenthesize bes, c d ees d ees g |
+	g4 g8 ~ \t {g a16-. r8[ a16-. r8 a16] g8[ a16 bes8 a16]} | bes4---> a---> g---> d---> |
+	ees4 ees8 ~ \t {ees ees16 r8[ ees16 r8 ees16] } g8 \t {bes a16 ~} | a4 a8 ~ \t {a a16 r8[ a16 r8 a16] r8[ a16 } bes8] |
+	c1 |
+	\leftBracket g4^\markup {\italic"Quietly"} bes a8 g f ees | f2 g8 f ees d | ees d c4 f8 ees d4 \rightBracket | ees'8^\markup {\italic"rit."} d c bes a bes a f |
+	bes1\fermata |
 }
 fAlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -155,16 +175,20 @@ fB = \relative c' {
 	f2.\fermata r4 |
 	f4. f8 ~ f4 f | f4. f8 ~ f4 f | g4. g8 ~ g4 g | f4. f8 ~ f f g a |
 	ees8 g bes d ~ d c bes a | ees g bes f' ~ f ees d c | bes4 f8 f ~ f g a bes ~ | bes a bes f ~ f2 |
-	g4 g f f | f f a g | ees ees f f | a a bes8 c d d ~ |
-	d8 c c c a bes c c | c bes d r g,8 g g g ~ | g g g g ~ g4 r | g4 f g a ~ |
+	g4 g f f | f f a g | ees ees f f | a a \leftBracket bes8 c d d ~ |
+	d8 c c c a bes c c | c bes d \rightBracket r g,8 g g g ~ | g g g g ~ g4 r | g4 f g a ~ |
 	a2. r4 |
 	bes2. d4 | d2. d4 | b1 | g2 ~ g8 f ees d |
 	ees2 f | d'4 c bes f | g2. bes4 | c2 ~ c8 c d ees |
-	d1 | d | d4 b f' d | ees1 |
-	bes2 a | f4 a bes c | bes1 | c2. r4 |
-	bes4 bes a a |
-	d4 \t {d8 d16 d8 d16 d8 d16 ees8 f16 r8[ bes,16 bes8 bes16]} | \t {d8 d16 d8 d16 d8 d16 d8 d16 d8 d16 ees8 f16} r4 |
-	\t {d8 d16 d8 d16 d8 d16 d8 d16 f8 f16 f8 f16 ~ f8 ees16 d8 ees16 ~ } | ees8 r r4 r2 |
+	d1 ~ | d | d4 b f' d | ees1 |
+	bes2 a | f4( a bes c) | bes1 | c2. r4 |
+	bes4-- bes-- a-- bes-- |
+	\leftBracket d4 \t {d8 d16 d8 d16 d8 d16 ees8 f16 r8[ bes,16 bes8 bes16]} | \t {d8 d16 d8 d16 d8 d16 d8 d16 d8 d16 ees8 f16} r4 |
+	\t {d8 d16 d8 d16 d8 d16 d8 d16 f8 f16 f8 f16 ~ f8 ees16 d8 ees16 ~ } | ees8 \parenthesize d, ees f g f g bes |
+	ees4 \rightBracket ees8 ~ \t {ees ees16-. r8[ ees16-. r8 ees16] r8[ ees16 d8 c16]} | bes4---> c---> d---> f---> |
+	ees1 | f ~ | f |
+	ees,4 g f2 | d4 a' g8 a ees f | ees2 f | c'8 bes a g f g f ees |
+	d1\fermata |
 }
 fBlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -176,22 +200,27 @@ fC = \relative c'{
 	\override TupletBracket.bracket-visibility = ##f
 	\key bes \major
 	d1\fermata |
-	ees | c2 d8 a' g f | ees2 d | g8 f ees d c2 |
+	ees | c2 d8 a' g f | ees2 d | \leftBracket g8 f ees d \rightBracket c2 |
 	f2.\fermata r4 |
 	d4. d8 ~ d4 d | d4. d8 ~ d4 d | d4. d8 ~ d4 d | d4. d8 ~ d4 d |
-	%{ TODO: change %}ees4 ees8 bes' ~ bes a g f | ees d g c ~ c a f ees | d4 d8 d ~ d ees f f ~ | f4 r8 g g a bes bes ~ |
+	ees4 ees8 bes' ~ bes a g f | ees d g c ~ c a f ees | d4 d8 d ~ d ees f f ~ | f4 r8 g g a bes bes ~ |
 	bes a a r f g a a ~ | a bes g r g a bes bes ~ | bes bes g bes a bes c c ~ | c ees d bes ~ bes4 r4 |
 	g4 g a a | f f f8 f f f | ees ees ees ees ~ ees ees f g | g4 f f f |
 	a8. a16 r8 a8 ~ a16 a8. a8 f |
-	d4 \t {d8 d16 d8 d16 d8 d16 ees8 f16 r8[ bes,16 bes8 bes16]} | \t {d8 d16 d8 d16 d8 d16 d8 d16 d8 d16 ees8 f16} r4 |
-	\t {d8 d16 d8 d16 d8 d16 d8 d16 f8 f16 f8 f16 ~ f8 ees16 d8 ees16 ~ } | ees8 r r4 r2 |
+	\leftBracket d4 \t {d8 d16 d8 d16 d8 d16 ees8 f16 r8[ bes,16 bes8 bes16]} | \t {d8 d16 d8 d16 d8 d16 d8 d16 d8 d16 ees8 f16} r4 |
+	\t {d8 d16 d8 d16 d8 d16 d8 d16 f8 f16 f8 f16 ~ f8 ees16 d8 ees16 ~ } | ees8 \rightBracket r r4 r2 |
 	g2 a | f4 f d c | ees2. g4 | a2 ~ a8 a bes g |
-	f1 | f | f2 aes2 | g1 |
-	d4 \t {d8 d16 ees8 ees16 r8[ ees16 ees8 ees16] ees8 g16 f8 a,16} | bes8 \t {bes8 bes16 d8 f16 f8 g16 ~ } g8 r r \t {r g16} |
+	f1 ~ | f | f2 aes2 | g1 |
+	d4 \t {d8 d16 ees8 ees16 r8[ ees16 ees8 ees16] ees8 g16 f8 a,16} | bes8 \t {bes8 bes16 d8 f16 f8 g16 ~ } g8 r r \t {r[ g16]} |
 	\t {g8 g16 g8 g16 g8 g16 g8 g16 g8 g16 g8 g16 g8 a16 bes8 a16 ~ } | a2. r4 |
-	g4 f ees f |
-	f4 f8 ~ \t {f8 f16 r8[ f16 r8 f16]} f4 | f4 f8 ~ \t {f8 f16 r8[ f16 r8 f16]} f4 |
-	g4 g8 ~ \t {g8 g16 r8[ f16 r8 f16]} f4 | g4 g8 ~ \t {g8 g16 r8[ g16 r8 g16]} g4 |
+	g4-- f-- ees-- f-- |
+	f4 f8 ~ \t {f8 f16-. r8[ f16-. r8 f16]} f4 | f4 f8 ~ \t {f8 f16-. r8[ f16-. r8 f16]} f4 |
+	g4 g8 ~ \t {g8 g16 r8[ aes16 r8 aes16]} aes4 | g4 g8 ~ \t {g8 g16 r8[ g16 r8 g16]} g4 |
+	\leftBracket bes4 \t {bes8 bes16 c8 c16 } \t {r8[ f,16 f8 f16] r8[ f16 f8 f16]} | d'8 \t {ees8 ees16 d8 a16 a8 bes16 ~ } bes8 r r \t {r8[ bes16]} |
+	\t {bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 c8 c16 ~ } | c2. r4 |
+	r2 \t {r8[ bes16 bes8 bes16]} a8 bes ~ |
+	bes2. \rightBracket r4 | a2 g | g a | bes c |
+	d1\fermata |
 }
 fClyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -206,18 +235,24 @@ fD = \relative c'{
 	ees4 g f2 | d4 a' g8 f ees d | c2 bes | c ees |
 	a2.\fermata r4 |
 	bes,4. bes8 ~ bes4 bes | a4. a8 ~ a4 a | bes4. bes8 ~ bes4 bes | bes4. bes8 ~ bes4 bes |
-	bes4. a8 ~ a4 a | ees'4. c8 c4 ees | d4 d8 c ~ c bes c d | d c d bes bes c d d ~ |
-	d8 ees c r a bes c c ~ | c bes bes r bes c d d ~ | d c c c c c ees ees ~ | ees d d r r2 |
+	bes4. a8 ~ a4 a | ees'4. c8 c4 ees | d4 d8 c ~ c bes c d | d c d \leftBracket bes bes c d d ~ |
+	d8 ees c r a bes c c ~ | c bes bes r bes c d d ~ | d c c c c c ees ees ~ | ees d d \rightBracket r r2 |
 	ees4 ees f f | d d d8 d d d ~ | d d d d ~ d8 c d ees | d4 c d ees |
 	f8. f16 r8 f ~ f16 f8. f8 ees |
 	d1 | f | f | ees |
-	\t {bes8 bes16 bes8 bes16 bes8 bes16 c8 c16 ~ } c8 r \t {r8[ f,16 f8 f16] } | d'8 \t {d8 ees16 d8 a16 a8 bes16 ~ } bes8 r \t {r8[ bes16 bes8 bes16]} |
-	\t {bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16} c8 \t {bes8 c16 ~ } | c8 r r4 r2 |
-	bes'2 ~ bes4. \t {a8 bes16} | a2 ~ a4. \t {a8 bes16} | g2 f4. \t {f8 g16} | ees1 |
-	g2 f | bes4 f g c, | ees1 | f2. r4 |
-	ees4 f ees c |
-	d4 d8 ~ \t {d8 d16 r8[ d16 r8 d16]} d4 | c4 c8 ~ \t {c8 c16 r8[ c16 r8 c16]} c4 |
+	\leftBracket \t {bes8 bes16 bes8 bes16 bes8 bes16 c8 c16 ~ } c8 r \t {r8[ f,16 f8 f16] } | d'8 \t {d8 ees16 d8 a16 a8 bes16 ~ } bes8 r \t {r8[ bes16 bes8 bes16]} |
+	\t {bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16} c8 \t {bes8 c16 ~ } | c8 \rightBracket r r4 r2 |
+	bes'2 ~ bes4. \t {a8( bes16} | a2) ~ a4. \t {a8( bes16} | g2) f4. \t {f8( g16} | ees1) |
+	g2 f | bes4( f g c,) | ees1 | f2. r4 |
+	ees4-- f-- ees-- c-- |
+	d4 d8 ~ \t {d8 d16-. r8[ d16-. r8 d16]} d4 | c4 c8 ~ \t {c8 c16-. r8[ c16-. r8 c16]} c4 |
 	d4 d8 ~ \t {d8 d16 r8[ d16 r8 d16]} d4 | ees4 ees8 ~ \t {ees8 ees16 r8[ ees16 r8 ees16]} ees4 |
+	d4 \t {d8 d16 ees8 ees16 r8[ ees16 ees8 ees16] ees8 d16 ees8 f16} | bes8 \t {bes8 bes16 a8 f16 f8 g16 ~ } g8 r f ~ \t {f g16} |
+	\t {g8 g16 g8 g16 g8 g16 g8 g16 g8 g16 g8 g16 g8 a16 bes8 a16 ~ } | a2. r4 |
+	r2 \t {r8[ d,16 d8 d16]} c8 d ~ |
+	d2. r4 |
+	a4 d d8 a' g f | ees2 d | \leftBracket g8 f ees d c d c f, | 
+	bes1\fermata \rightBracket |
 }
 fDlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -229,22 +264,27 @@ mA = \relative c {
 	\override TupletBracket.bracket-visibility = ##f
 	\key bes \major
 	f1\fermata |
-	bes | a2 bes | g f | ees'4 bes c8 d c f, |
-	c'2.\fermata f,8 bes ~ |
+	bes | a2 bes | g f | ees'4 bes \leftBracket c8 d c f, \rightBracket |
+	c'2.\fermata \leftBracket f,8 bes ~ |
 	bes4 bes8 bes ~ bes a g g | g f d f r4 f8 bes ~ | bes4 bes8 bes8 ~ bes a g g ~ | g f d f r4 r8 d8|
-	ees4 bes'8 a ~ a4 d,8 ees ~ | ees4 bes'8 a ~ a4 bes8 bes ~ | bes4 r r2 | R1
+	ees4 bes'8 a ~ a4 d,8 ees ~ | ees4 bes'8 a ~ a4 bes8 bes ~ | bes4 \rightBracket r r2 | R1
 	bes4 bes c c | c c d d | bes bes ees ees | d d d d |
-	bes bes ees ees | c c bes8 bes bes bes ~ | bes bes bes bes ~ bes4 r | bes a bes c |
-	ees8. ees16 r8 ees8 ~ ees16 ees8. d8 c |
-	d1 | d | d | bes |
+	bes bes ees ees | c c \leftBracket bes8 bes bes bes ~ | bes bes bes bes ~ bes4 r | bes a bes c |
+	ees8. ees16 r8 ees8 ~ ees16 ees8. d8 c \rightBracket |
+	d1 ~ | d | d | bes |
 	bes2 c | d4 c bes a | bes1 | c |
 	bes8 ~ \t {bes bes16 bes8 bes16 bes8 bes16 bes8 bes16 c8 d16} r8 \t {r bes16} | \t {a8 a16 a8 a16 a8 a16 a8 a16 a8 a16 c8 d16} r4 |
 	\t {b8 b16 b8 b16 b8 b16 b8 b16 g8 g16 g8 g16 g8 g16 b8 c16 ~ } | c8 r r4 r2 |
-	bes4 \t {bes8 bes16 c8 c16 } \t {r8[ f,16 f8 f16] r8[ f16 f8 f16]} | d'8 \t {ees8 ees16 d8 a16 a8 bes16 ~ } bes8 r r \t {r8[ bes16]} |
-	\t {bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 c8 c16 ~ } | c2. r4 |
-	ees4 d c ees |
-	f,4 f8 ~ \t {f f16 r8[ f16 r8 f16] r8[ f16 ~} f8] | f4 f8 ~ \t {f f16 r8[ f16 r8 f16] r8[ f16 ~} f8] |
-	f4 f8 ~ \t {f f16 r8[ f16 r8 f16] r8[ f16 ~} f8 | g4 g8[ ~ \t {g g16 r8[ g16 r8 g16] r8[ g16 ~} g8] |
+	\leftBracket bes4 \t {bes8 bes16 c8 c16 } \t {r8[ f,16 f8 f16] r8[ f16 f8 f16]} | d'8 \t {ees8 ees16 d8 a16 a8 bes16 ~ } bes8 r r \t {r8[ bes16]} |
+	\t {bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 bes8 bes16 c8 c16 ~ } | c2. \rightBracket r4 |
+	ees4-- d-- c-- ees-- |
+	f,4 f8 ~ \t {f f16-. r8[ f16-. r8 f16] r8[ f16 ~} f8] | f4 f8 ~ \t {f f16-. r8[ f16-. r8 f16] r8[ f16 ~} f8] |
+	f4 f8 ~ \t {f f16 r8[ f16 r8 f16] r8[ f16 ~} f8] | g4 g8 ~ \t {g g16 r8[ g16 r8 g16] r8[ g16 ~} g8] |
+	g4 g8 ~ \t {g a16 r8[ a16 r8 a16] r8[ a16 bes8 c16]} | bes4---> c---> d---> f---> |
+	ees4 ees8 ~ \t {ees ees16 r8[ ees16 r8 ees16] r8[ c16 ~} c8] | a4 a8 ~ \t {a a16 r8[ a16 r8 a16] r8[ a16 } bes8] |
+	c1 |
+	bes2 a | c b | g8 f ees4 a8 g f4 | g8 f g4 a2 |
+	f1\fermata |
 }
 mAlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -265,10 +305,15 @@ mB = \relative c {
 	bes1 | a | g | c, |
 	ees2 f | bes4 a g f | ees1 | f |
 	bes,1 | a | g2 b | c1 |
-	ees2 ees | bes4 a g f' | ees1 | f2. r4 |
-	ees4 ees ees f |
-	bes,4 bes8 ~ \t {bes8 bes16 r8[ bes16 r8 bes16]} f'8 bes, | a4 a8 ~ \t {a8 a16 r8[ a16 r8 a16]} f'8 a, |
-	g4 g8 ~ \t {g8 g16 r8[ g16 r8 g16]} f'8 g, | c4 c8 ~ \t {c8 c16 r8[ c16 r8 c16]} g'8 c,
+	ees2 ees | bes4( a g f') | ees1 | f2. r4 |
+	ees4-- ees-- ees-- f-- |
+	bes,4 bes8 ~ \t {bes8 bes16-. r8[ bes16-. r8 bes16]} f'8 bes, | a4 a8 ~ \t {a8 a16-. r8[ a16-. r8 a16]} f'8 a, |
+	g4 g8 ~ \t {g8 g16 r8[ g16 r8 g16]} f'8 g, | c4 c8 ~ \t {c8 c16 r8[ c16 r8 c16]} g'8 c, |
+	ees4 ees8 ~ \t {ees8 f16 r8[ f16 r8 f16] f8 a,16 c8 f16} | bes4---> a---> g---> f---> |
+	ees4 ees8 ~ \t {ees8 ees16 r8[ ees16 r8 ees16]} bes'8 ees, | f4 f8 ~ \t {f8 f16 r8[ f16 r8 f16]} c'8 f, |
+	f,1 |
+	ees'2 ees | d g8 f ees d | c2 d | ees f | 
+	bes,1\fermata |
 }
 mBlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -291,7 +336,7 @@ mBlyric = \lyricmode {
 					\clef treble
 					\new Voice = "VoiceFemale1" \fA
 				>>
-				\new Lyrics = "LyricsFemale1"
+				%\new Lyrics = "LyricsFemale1"
 				
 				\new Staff = "Female2" <<
 					\set Staff.instrumentName = "Female II"
@@ -299,7 +344,7 @@ mBlyric = \lyricmode {
 					\clef treble
 					\new Voice = "VoiceFemale2" \fB
 				>>
-				\new Lyrics = "LyricsFemale2"
+				%\new Lyrics = "LyricsFemale2"
 				
 				\new Staff = "Female3" <<
 					\set Staff.instrumentName = "Female III"
@@ -307,7 +352,7 @@ mBlyric = \lyricmode {
 					\clef treble
 					\new Voice = "VoiceFemale3" \fC
 				>>
-				\new Lyrics = "LyricsFemale3"
+				%\new Lyrics = "LyricsFemale3"
 				
 				\new Staff = "Female4" <<
 					\set Staff.instrumentName = "Female IV"
@@ -315,7 +360,7 @@ mBlyric = \lyricmode {
 					\clef treble
 					\new Voice = "VoiceFemale4" \fD
 				>>
-				\new Lyrics = "LyricsFemale4"
+				%\new Lyrics = "LyricsFemale4"
 
 				\new Staff = "Male1" <<
 					\set Staff.instrumentName = "Male"
@@ -323,7 +368,7 @@ mBlyric = \lyricmode {
 					\clef "treble_8"
 					\new Voice = "VoiceMale1" \mA
 				>>
-				\new Lyrics = "LyricsMale1"
+				%\new Lyrics = "LyricsMale1"
 
 				\new Staff = "Male2" <<
 					\set Staff.instrumentName = "Bass"
@@ -331,9 +376,9 @@ mBlyric = \lyricmode {
 					\clef "bass"
 					\new Voice = "VoiceMale2" \mB
 				>>
-				\new Lyrics = "LyricsMale2"
+				%\new Lyrics = "LyricsMale2"
 
-				\context Lyrics = "LyricsFemale1" {
+				%{\context Lyrics = "LyricsFemale1" {
 					\lyricsto "VoiceFemale1" {
 						\fAlyric
 					}
@@ -362,11 +407,16 @@ mBlyric = \lyricmode {
 					\lyricsto "VoiceMale2" {
 						\mBlyric
 					}
-				}
+				}%}
 			>>
 		>>
 		\layout {
 			#(layout-set-staff-size 17.82)
+			\context {
+				\Score
+				\override SpacingSpanner
+					#'common-shortest-duration = #(ly:make-moment 1 4)
+			}
 		}
 		\midi {}
 	}
