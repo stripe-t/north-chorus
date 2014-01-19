@@ -178,7 +178,7 @@ fA = \relative c' {
 	d4) d8 d d cis d e | fis4 e8 d e4 b8 cis | d4 e fis g | a e8 e e2 |
 	
 	% B
-	R1 | R | R | R |
+	R1^\markup \annotation {"落ち着いて"} | R | R | R |
 	R | r4 fis, fis a | b2. r8 fis | b4 b8 b ~ b cis d4 |
 	e4. cis8 cis4 r | fis g8 fis ~ fis e e4 |
 	
@@ -227,6 +227,13 @@ fB = \relative c' {
 	d4. d8 ~ d e d cis ~ | cis4 cis b cis | d4. d8 ~ d e g fis ~ | fis4 fis e cis |
 	d4. d8 ~ d e b a ~ | a4 r a8 b cis d ~ | d1 | d4. d8 ~ d4 fis | e2. r4 |
 	R1 |
+	
+	% M
+	\key e \major
+	gis,4. gis8 ~ gis8 gis4 gis8( | a) a4 a8 ~ a a4 a8( | b) b4 b8 ~ b b4 b8( | bis) bis4 bis8 ~ bis bis4 bis8( |
+	cis) cis4 cis8 ~ cis cis4 cis8( | b) b4 b8 ~ b b4 b8( | a) a4 a8 ~ a a4 a8( | b4) r r2 |
+	gis8 gis4 gis8 ~ gis gis b a ~ | a a4 a8 ~ a a cis b ~ | b b4 b8 ~ b b cis dis ~ | dis dis4 fis8 ~ fis e dis gis, |
+	cis cis4 cis8
 }
 fBlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -249,6 +256,11 @@ fC = \relative c'{
 	d,4 e fis fis8 e ~ | e4 a, a cis | d d8 e ~ e fis d4 | r g fis e |
 	d e8 fis ~ fis g fis4 | r a, a cis | d2. r8 a | d4 d8 d ~ d e fis4 |
 	g4. e8 e4 r | R1 |
+	
+	% C
+	\key e \major
+	b4. b8 ~ b b4 b8( | cis) cis4 cis8 ~ cis cis4 cis8( | dis) dis4 dis8 ~ dis dis4 dis8 ~ | dis8 dis4 dis8 ~ dis dis4 dis8( |
+	gis) gis4 gis8 ~ gis gis4 gis8 ~ | gis gis4 gis8 ~ gis gis4 gis8( | cis,) cis4 cis8 ~ cis cis4 dis8 ~ | dis4 r r2 |
 }
 fClyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -271,6 +283,15 @@ fD = \relative c'{
 	b4. b8 ~ b4 b ~ | b8 fis4. fis4 fis | g4. g8 ~ g4 a ~ | a8 d4. d4 cis |
 	b4. b8 ~ b4 b ~ | b8 fis4. fis4 fis | g4. g8 ~ g4 g | gis4. gis8 ~ gis4 gis |
 	a4. a8 a4 r | R1 |
+	
+	% M
+	\key e \major
+	e'4 fis8 e b' e, fis e ~ | e e fis e b' e, fis e | dis dis e dis b' dis, e dis ~ | dis dis e dis bis' dis, e dis |
+	cis cis dis cis gis' cis, dis cis | dis dis e dis b' dis, e dis | e e fis e b' e, fis dis ~ | dis e fis gis fis4 dis8 cis |
+	b4 r8 gis gis b b b( | a4) r8 a a cis cis cis( | dis4) r8 dis dis dis gis gis( | gis) e dis cis bis cis dis bis |
+	cis4 r8 gis cis cis b cis | b4 b8 a gis4 fis8 gis | a4. e'8 e2 ~ | e r4 gis, |
+	g4. c8 c4. c8 | b4 r8 b b a fis gis | a4. a8 a2 ~ | a1 |
+	
 }
 fDlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -289,12 +310,20 @@ mA = \relative c {
 		
 		% A
 		bd4 bd bd bd | bd bd bd8 sn bd4 | bd bd bd bd | bd bd bd bd |
-		bd bd bd bd8 sn | bd4 bd bd r | R1 | r8 sn bd sn ~ sn bd hh4 |
+		bd bd bd bd8 sn | bd4 bd bd r | R1 | r8 sn bd sn ~ sn bd hho4 |
 		
 		% B
 		bd2 bd | bd8 bd4 bd8 bd4 r | bd2 bd4 bd8 bd16 bd | bd8 bd4 bd8 bd8 sn bd8 bd |
 		bd4. bd8 sn4 bd | bd4. bd8 sn8 bd bd bd | bd4 bd8 bd sn8 bd bd4 | bd4 bd8 sn ~ sn bd8 sn4 |
 		bd4 bd8 bd sn8 sn sn sn | sn4 r r2 |
+		
+		% M
+		\once \override Staff.KeySignature #'stencil = #(lambda (grob)
+    		(bracketify-stencil (ly:key-signature-interface::print grob) Y 0.1 0.2 0.1))
+		\notemode { \key e \major }
+		bd4 bd bd bd | bd bd bd bd | bd bd bd bd | bd bd bd bd |
+		bd bd bd bd | bd bd bd bd | bd r r r8 bd ~ | bd bd sn bd sn16 sn sn sn sn sn sn sn |
+		bd8 bd sn bd16 sn bd8 bd sn bd | bd8 bd sn bd16 sn bd8 bd sn bd16 bd | bd8 bd sn bd16 sn bd8 bd sn bd | bd sn sn bd r bd sn bd |
 	}
 }
 mAlyric = \lyricmode {
@@ -318,6 +347,15 @@ mB = \relative c {
 	d4 e fis d'8 cis ~ | cis4 fis, fis a | g fis8 e ~ e d a4 | r e' d cis |
 	b4 cis8 d ~ d d' cis4 | r4 fis, fis a | b2. r8 fis, | b4 b8 b ~ b cis d4 |
 	e4. cis8 cis4 r | fis g8 fis ~ fis e e4 |
+	
+	% M
+	\key e \major
+	e4 e8 e e e e b | a4 a8 a a a a a | b4 b8 b a a a a | gis gis dis' gis, gis' dis gis, dis' |
+	cis4 cis8 cis cis cis cis cis | gis4 gis8 gis gis gis gis gis | a4 a8 a a a a b ~ | b b fis' b, b' fis b, fis |
+	gis4 gis8 gis gis gis a b | a4 a8 a a a a a | b4 b8 b b b b b | c4 c8 gis ~ gis c dis gis, |
+	cis4 cis8 cis ~ cis cis gis' cis, | fis, fis cis' fis, fis' cis fis, gis | a4 a8 a a a a a | a4 a8 a a a a b |
+	c4 c8 c c c c c | b4 b8 b b b b b | a4 a8 a a a a a | d d d d d d d d |
+	
 }
 mBlyric = \lyricmode {
 	\set ignoreMelismata = ##t
