@@ -233,7 +233,14 @@ fB = \relative c' {
 	gis,4. gis8 ~ gis8 gis4 gis8( | a) a4 a8 ~ a a4 a8( | b) b4 b8 ~ b b4 b8( | bis) bis4 bis8 ~ bis bis4 bis8( |
 	cis) cis4 cis8 ~ cis cis4 cis8( | b) b4 b8 ~ b b4 b8( | a) a4 a8 ~ a a4 a8( | b4) r r2 |
 	gis8 gis4 gis8 ~ gis gis b a ~ | a a4 a8 ~ a a cis b ~ | b b4 b8 ~ b b cis dis ~ | dis dis4 fis8 ~ fis e dis gis, |
-	cis cis4 cis8
+	cis cis4 cis8 ~ cis gis fis gis | fis fis4 fis8 ~ fis a a b | cis8 cis4 cis8 ~ cis cis e fis | \tuplet 3/2 {gis4 cis, gis ~ } gis4 e'8 fis |
+	\tuplet 3/2 {g4 c, e ~ } e2 | dis4 r r2 | R1 | a |
+	
+	% C'
+	\key d \major
+	g2 d' | cis d4 e | a,2 e' | d a |
+	b d | d cis | d e | fis ais |
+	g b, | d cis | fis g4 fis | b,2 r |
 }
 fBlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -257,10 +264,19 @@ fC = \relative c'{
 	d e8 fis ~ fis g fis4 | r a, a cis | d2. r8 a | d4 d8 d ~ d e fis4 |
 	g4. e8 e4 r | R1 |
 	
-	% C
+	% M
 	\key e \major
 	b4. b8 ~ b b4 b8( | cis) cis4 cis8 ~ cis cis4 cis8( | dis) dis4 dis8 ~ dis dis4 dis8 ~ | dis8 dis4 dis8 ~ dis dis4 dis8( |
 	gis) gis4 gis8 ~ gis gis4 gis8 ~ | gis gis4 gis8 ~ gis gis4 gis8( | cis,) cis4 cis8 ~ cis cis4 dis8 ~ | dis4 r r2 |
+	e8 e4 e8 ~ e e gis fis ~ | fis fis4 fis8 ~ fis fis e dis ~ | dis dis4 dis8 ~ dis dis dis dis ~ | dis gis b dis ~ dis b gis dis |
+	e e4 e8 ~ e e dis e | dis dis4 dis8 ~ dis dis cis dis | e e4 e8 ~ e gis cis dis | \tuplet 3/2 {e4 gis, cis, ~ } cis4 cis'8 dis |
+	\tuplet 3/2 {e4 g, c ~ } c2 | b4 r r2 | R1 | fis |
+	
+	% C'
+	\key d \major
+	fis2 g | b a | fis cis' | e d |
+	g, b | a g | fis e | fis ais |
+	b g | fis e | fis ais | b r |
 }
 fClyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -292,6 +308,11 @@ fD = \relative c'{
 	cis4 r8 gis cis cis b cis | b4 b8 a gis4 fis8 gis | a4. e'8 e2 ~ | e r4 gis, |
 	g4. c8 c4. c8 | b4 r8 b b a fis gis | a4. a8 a2 ~ | a1 |
 	
+	% C'
+	\key d \major
+	b2 d | d cis | a fis' | e d |
+	b g' | fis e | d e | fis d |
+	b d | g fis4 e | fis2 cis | d r |
 }
 fDlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -355,6 +376,12 @@ mB = \relative c {
 	gis4 gis8 gis gis gis a b | a4 a8 a a a a a | b4 b8 b b b b b | c4 c8 gis ~ gis c dis gis, |
 	cis4 cis8 cis ~ cis cis gis' cis, | fis, fis cis' fis, fis' cis fis, gis | a4 a8 a a a a a | a4 a8 a a a a b |
 	c4 c8 c c c c c | b4 b8 b b b b b | a4 a8 a a a a a | d d d d d d d d |
+	
+	% C
+	\key d \major
+	g2 g, | a g | fis fis' | b, a |
+	g g' | a a, | d e | fis fis, |
+	g d' | a e' | ais, e' | b a |
 	
 }
 mBlyric = \lyricmode {
