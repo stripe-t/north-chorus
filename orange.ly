@@ -67,7 +67,7 @@ rightBracket = {
 	bookTitleMarkup = \markup {
 		\column {
 			\fill-line {
-				"Revision 1 (WIP)"
+				"Revision 1"
 				"2014/1/26"
 			}
 			\fill-line {
@@ -234,21 +234,21 @@ fB = \relative c' {
 	cis) cis4 cis8 ~ cis cis4 cis8( | b) b4 b8 ~ b b4 b8( | a) a4 a8 ~ a a4 a8( | b4) r r2 |
 	gis8 gis4 gis8 ~ gis gis b a ~ | a a4 a8 ~ a a cis b ~ | b b4 b8 ~ b b cis dis ~ | dis dis4 fis8 ~ fis e dis gis, |
 	cis cis4 cis8 ~ cis gis fis gis | fis fis4 fis8 ~ fis a a b | cis8 cis4 cis8 ~ cis cis e fis | \tuplet 3/2 {gis4 cis, gis ~ } gis4 e'8 fis |
-	\tuplet 3/2 {g4 c, e ~ } e2 | dis4 r r2 | R1 | r4 d,\mp cis a |
+	\tuplet 3/2 {g4 c, e ~ } e2( | fis4) r r2 | R1 | d1\p |
 	
 	% C'
 	\key d \major
-	b4 g fis' e8( fis | e2) r2 | a2\p e' | d a |
+	g,2 d' | d cis4 b | a2\p e' | d a |
 	b d | d cis | d e | fis d4 c |
 	g2 b | d cis | fis g4 fis | d4. r8 r2 |
-	r4 r8 a,8\mf e' fis e d | d4 r r2 | r2 a'8\f b cis d | e fis e4 ~ e2\<( | fis1) |
+	r4 r8 a,8\mf e' fis e d | d4 r r2 | r2 fis8\f g a b | cis d e4 ~ e2\<( | fis1) |
 	
 	% M'
 	\key e \major
 	e4->\f r r2 | e4-> r r2 | dis4-> r e-> r | fis-> r r2 |
 	e4-> r r8 e-> r dis-> | r2 r8 dis-> r e-> ~ | e1(\fp\< | dis) |
-	b4.\f b8 ~ b b cis dis | e4 e cis a | b4. b8 ~ b b cis dis ~ | dis dis cis dis cis bis gis bis |
-	cis4. cis8 ~ cis gis cis b | ais4 ais8 gis fis4 fis8 gis | a4. e'8 ~ e4 fis ~ | fis8 gis4. cis,4 gis |
+	e4.\f e8 ~ e e fis e ~ | e4. e8 ~ e e fis e( | dis4.) dis8 ~ dis dis e dis ~ | dis dis cis dis fis e dis fis |
+	e4. e8 ~ e gis, cis e | dis4 dis8 cis b4 fis8 gis | a4. e'8 ~ e4 fis ~ | fis8 gis4. cis,4 gis |
 	a4. e'8 ~ e4 gis | fis b,8\ff b a' gis e fis-> | fis4.-> e8-> e2-> ~ | e1 |
 }
 fBlyric = \lyricmode {
@@ -277,21 +277,21 @@ fC = \relative c'{
 	\key e \major
 	b4.\mf b8 ~ b b4 b8( | cis) cis4 cis8 ~ cis cis4 cis8( | dis) dis4 dis8 ~ dis dis4 dis8 ~ | dis8 dis4 dis8 ~ dis dis4 dis8( |
 	gis) gis4 gis8 ~ gis gis4 gis8 ~ | gis gis4 gis8 ~ gis gis4 gis8( | cis,) cis4 cis8 ~ cis cis4 dis8 ~ | dis4 r r2 |
-	e8 e4 e8 ~ e e gis fis ~ | fis fis4 fis8 ~ fis fis e dis ~ | dis dis4 dis8 ~ dis dis dis dis ~ | dis gis b dis ~ dis b gis dis |
+	e8 e4 e8 ~ e e gis fis ~ | fis fis4 fis8 ~ fis fis e dis ~ | dis dis4 dis8 ~ dis dis dis dis ~ | dis gis b dis ~ dis b a gis |
 	e e4 e8 ~ e e dis e | dis dis4 dis8 ~ dis dis cis dis | e e4 e8 ~ e gis cis dis | \tuplet 3/2 {e4 gis, cis, ~ } cis4 cis'8 dis |
-	\tuplet 3/2 {e4 g, c ~ } c2 | b4 r r2 | R1 | fis\p |
+	\tuplet 3/2 {e4 g, c ~ } c2( | b4) r r2 | R1 | r4 d,\mp cis a |
 	
 	% C'
 	\key d \major
-	g2 d' | d cis4 b | d2 cis | e d |
+	b4 g fis' e8( fis | e2) r2 | d'2 cis | e d |
 	g, b | a g | a g | a c |
 	d fis | e a, | ais cis | b4. r8 r2 |
-	r4 r8 a,8\mf e' fis e d | d4 r r2 | r d8\f e fis g |
-	fis g g4 ~ g2\<( | a1) |
+	r4 r8 a,8\mf e' fis e d | d4 r r2 | r fis8\f g fis g | a b cis4 ~ cis2\<( |
+	dis1) |
 	
 	% M'
 	\key e \major
-	gis4->\f r r2 | a4-> r r2 | b4-> r b-> r | gis-> r r2 |
+	gis,4->\f r r2 | a4-> r r2 | b4-> r b-> r | gis-> r r2 |
 	gis4 r r8 gis-> r gis-> | r2 r8 gis-> r a-> ~ | a1\fp\<( | b) |
 	e,4\f r8 b b gis' \xNote gis gis | e4 r8 a, a e' \xNote e e | dis4 r8 b b b fis' fis | gis e dis cis bis cis dis bis |
 	cis4 r8 gis cis cis cis cis | b4 b8 a gis4 fis8 gis | a4. e'8 e2 ~ | e r4 b8 b |
@@ -332,12 +332,12 @@ fD = \relative c'{
 	d2\p g | b a | a, fis' | d fis |
 	d g | g4 fis e2 | fis e | fis a |
 	b d | a g4 e | cis2 e | fis4. r8 r2 |
-	r4 r8 a,8\mf e' fis e d | d4 r r2 | r b8\f b cis cis | cis d cis4 ~ cis2\<( |
-	dis1) |
+	r4 r8 a,8\mf e' fis e d | d4 r r2 | r d8\f e d e | fis g e4 ~ e2\<( |
+	fis1) |
 	
 	% M'
 	\key e \major
-	b4->\f r r2 | cis4-> r r2 | fis4-> r fis-> r | dis-> r r2 |
+	b,4->\f r r2 | cis4-> r r2 | fis4-> r fis-> r | dis-> r r2 |
 	cis4-> r r8 cis-> r b-> | r2 r8 b-> r cis-> ~ | cis1\fp\<( | b) |
 	e4\f fis8 e b' e, fis e ~ | e e fis e b' e, fis e | dis dis e dis b' dis, e dis ~ | dis dis fis e bis' e, fis e |
 	gis cis, dis cis gis' cis, dis cis | dis dis e dis b' dis, e dis | e e fis e b' e, fis e ~ | e e fis e b' e, fis gis |
@@ -419,8 +419,8 @@ mB = \relative c {
 	e2\p( fis | g a | g1) | R |
 	
 	% A
-	d4\mp d8 d d d d d | g,4 g8 g g g g g | a4 a8 a a a a a | ais4 ais8 ais ais ais ais ais |
-	b4 b8 b b b b b | e,4 fis8 fis gis gis d' d | g,4 g g b | a\< a8 b cis4 fis8\mf e |
+	d4\mp d8 d ~ d d d d | g,4 g8 g ~ g g g g | a4 a8 a ~ a a a a | ais4 ais8 ais ~ ais ais ais ais |
+	b4 b8 b ~ b b b b | e,4 fis8 fis gis gis d' d | g,4 g g b | a\< a8 b cis4 fis8\mf e |
 	
 	% B
 	d4 e fis d'8 cis ~ | cis4 fis, fis a | g fis8 e ~ e d a4 | r e' d cis8 cis |
@@ -429,11 +429,11 @@ mB = \relative c {
 	
 	% M
 	\key e \major
-	e4\mf e8 e e e e b | a4 a8 a a a a a | b4 b8 b a a a a | gis gis dis' gis, gis' dis gis, dis' |
-	cis4 cis8 cis cis cis cis cis | gis4 gis8 gis gis gis gis gis | a4 a8 a a a a b ~ | b b fis' b, b' fis b, fis |
-	gis4 gis8 gis gis gis a b | a4 a8 a a a a cis | b4 b8 b b b b b( | c4) c8 gis ~ gis c dis gis, |
-	cis4 cis8 cis ~ cis cis gis' cis, | fis, fis cis' fis, fis' cis fis, gis | a4 a8 a a a a a | a4 a8 a a a a b |
-	c4 c8 c c c c c | b4 b8 b b b b b | a4. a8 a2\>( | d1) |
+	e4\mf e8 e e e e b | a4 a8 a a a a ais | b4 b8 b a a a a | gis gis dis' gis, gis' dis gis, dis' |
+	cis4 cis8 cis cis cis cis e | gis,4 gis8 gis gis gis gis b | a4 a8 a a a a b ~ | b b fis' b, b' fis b, fis |
+	gis8 gis e' gis, ~ gis gis e' gis, | a a e' a, ~ a a e' a, | b b fis' b, b fis' b, b( | c4) c8 gis ~ gis c dis gis, |
+	cis4 cis8 cis ~ cis cis gis' cis, | fis, fis cis' fis, fis' cis fis, gis | a a e' a, ~ a a e' a, ~ | a a e' a, ~ a a a b |
+	c4 g'8 c, ~ c c g' c, | b4 b8 b b b b b | a4. a8 a2\>( | d1) |
 	
 	% C
 	\key d \major
