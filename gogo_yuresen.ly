@@ -119,12 +119,32 @@ chord = \chordmode {
 	\mark \markup{\bold \box Intro}
 	\tempo 4=180
 	
+	% Intro
+	s1*8
+	\time 3/4
+	s4*3
+	\time 4/4
+	s1*8
 }
 
 fA = \relative c' {
 	\key c \minor
 	\time 4/4
-	c4 c c c
+	
+	% Intro
+	R1*8
+	\time 3/4
+	r4 r r
+	\time 4/4
+	g'8 c r c ~ c ees d c | c8. c16 ees8-. d8 ~ d ees d4 | g,8 c r c ~ c ees d c | c8. c16 d8-. c8 ~ c d c4 |
+	g8 c r c ~ c ees d c | c8. c16 ees8-. d8 ~ d ees d4 | g,8 c r c ~ c ees d c | c8. c16 d8-. c8 ~ c d c4 |
+	
+	% A
+	\change Staff = "Female3"
+	r4 c,-.-- r c-.-- | r4 d-.-- r d-.-- | r4 ees-.-- r ees-.-- | r4 d-.-- r d-.-- |
+	r4 c-.-- r c-.-- | r4 d-.-- r d-.-- | r4 f-.-- r f-.-- | r4 c-.-- r c-.-- |
+	g'4. c8 ~ c2 | d4. g,8 ~ g2 | g4. c8 ~ c2 | bes4. f8 ~ f2 |
+	g4. c8 ~ c2 | bes4. f8 ~ f2 | c'4. bes8 ~ bes2 | g4. g8 ~ \autoBeamOff g c \autoBeamOn d b16 g |
 }
 fAlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -135,6 +155,21 @@ fAlyric = \lyricmode {
 fB = \relative c' {
 	\key c \minor
 	\time 4/4
+	
+	% Intro
+	R1*4
+	c4. g'8 ~ g2 | f4. d8 ~ d2 | c4. g'8 ~ g2 | f4. d8 ~ d2 |
+	\time 3/4
+	r4 r r
+	\time 4/4
+	R1*4
+	g8 c r c ~ c g' f ees | c8. c16 g'8-. f ~ f g f4 | g,8 c r c ~ c g' f ees | c8. c16 d8-. c ~ c d c4 |
+	
+	% A
+	r4 g-.-- r g-.-- | r4 g-.-- r g-.-- | r4 g-.-- r g-.-- | r4 g-.-- r g-.-- |
+	r4 g-.-- r g-.-- | r4 g-.-- r g-.-- | r4 g-.-- r g-.-- | r4 g-.-- r g-.-- |
+	c4. g'8 ~ g2 | f4. d8 ~ d2 | c4. ees8 ~ ees2 | d4. bes8 ~ bes2 |
+	c4. g'8 ~ g2 | f4. d8 ~ d2 | ees4. d8 ~ d2 | c4. c8 ~ c4 r |
 }
 fBlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -145,6 +180,23 @@ fBlyric = \lyricmode {
 fC = \relative c'{
 	\key c \minor
 	\time 4/4
+	
+	% Intro
+	R1*4
+	c4. g'8 ~ g2 | f4. d8 ~ d2 | c4. g'8 ~ g2 | f4. d8 ~ d2 |
+	\time 3/4
+	r4 r r
+	\time 4/4
+	ees4. ees8 ~ ees2 | ees4. d8 ~ d2 | ees4. ees8 ~ ees2 | ees4. f8 ~ f2 |
+	ees4. ees8 ~ ees4 f | ees4. ees8 ~ ees ees-. f4 | ees4. ees8 ~ ees4 f | ees4. ees8 ~ ees f ees4 |
+	
+	% A
+	\change Staff = "Female4"
+	<<{\hideNotes r4 r r r}\new Voice{\oneVoice R1}>>| R1*3 | \unHideNotes
+	ees4. ees8 ~ ees2 | f4. f8 ~ f2 | d4. d8 ~ d2 | ees4. ees8 ~ ees2 |
+	ees4 d8 ees ~ ees g4 g8 | f8 d4 bes8 ~ bes d d d | ees4 d8 c ees4 d8 c | d f4 d8 ~ d d ees d |
+	c4 bes8 c ~ c g' g g | f d4 bes8 ~ bes g g g | c4 d8 ees d c bes d | ees ees d ees ~ ees4 r |
+
 }
 fClyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -155,6 +207,22 @@ fClyric = \lyricmode {
 fD = \relative c'{
 	\key c \minor
 	\time 4/4
+
+	% Intro
+	c4. g'8 ~ g2 | f4. d8 ~ d2 | c4. g'8 ~ g2 | f4. d8 ~ d2 |
+	c4. ees8 ~ ees2 | d4. bes8 ~ bes2 | g4. c8 ~ c4 ees | d4. g,8 ~ g2 |
+	\time 3/4
+	a4-.-- bes-.-- bes-.--
+	\time 4/4
+	R1*4
+	R1*2 | g8 c r c ~ c ees d c | c8. c16 d8-. c8 ~ c d c4 |
+	
+	% A
+	\change Staff = "Female1"
+	c4 bes8 c ~ c ees ees ees | d bes4 g8 ~ g g g g | g4 f8 ees g4 f8 ees | f bes4 bes8 ~ bes4 r |
+	c4 bes8 c ~ c ees ees ees | d bes4 g8 ~ g g g g | g'4 f8 g f ees c bes | c c bes c ~ c4 r |
+	c4 bes8 c ~ c ees ees ees | d bes4 g8 ~ g g g g | g4 f8 ees g4 f8 ees | f bes ~ bes bes ~ bes4 r |
+	c4 bes8 c ~ c ees ees ees | d bes4 g8 ~ g g g g | g'4 f8 g f ees c bes | c c bes c ~ c4 r |
 }
 fDlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -162,19 +230,52 @@ fDlyric = \lyricmode {
 	\override Lyrics . LyricText #'font-size = #-1
 }
 
-mA = \relative c {
+mA = \relative c' {
 	\key c \minor
 	\time 4/4
+	
+	% Intro
+	g4. g8 ~ g2 | bes4. f8 ~ f2 | aes4. aes8 ~ aes2 | bes4. f8 ~ f4 aes |
+	g4. g8 ~ g2 | aes4. f8 ~ f2 | ees4. ees8 ~ ees2 | f4. f8 ~ f2 |
+	\time 3/4
+	f4-.-- f-.-- f-.-- |
+	\time 4/4
+	g4. a8 ~ a2 | g4. f8 ~ f g f d | g4. a8 ~ a2 | bes4. a8 ~ a2 |
+	g4. g8 ~ g2 | g4. f8 ~ f2 | g4. g8 ~ g2 | g4. g8 ~ g2 |
+	
+	% A
+	g4. g8 ~ g2 | g4. g8 ~ g2 | g4. g8 ~ g2 | g4. g8 ~ g2 |
+	g4. g8 ~ g2 | g4. g8 ~ g2 | g4. g8 ~ g2 | g4. g8 ~ g2 |
+	g4. g8 ~ g2 | g4. f8 ~ f2 | ees4. g8 ~ g2 | f4. d8 ~ d2 |
+	c4. c8 ~ c2 | d4. d8 ~ d2 | ees4. f8 ~ f4 d | g4. g8 ~ \autoBeamOff g c \autoBeamOn d b16 g |
+	
 }
 mAlyric = \lyricmode {
 	\set ignoreMelismata = ##t
 	\override Lyrics . LyricText #'font-name = "TakaoEx明朝"
 	\override Lyrics . LyricText #'font-size = #-1
+	
+	
 }
 
 mB = \relative c {
 	\key c \minor
 	\time 4/4
+	
+	% Intro
+	c4. c8 ~ c2 | c4. c8 ~ c2 | c4. c8 ~ c2 | c4. c8 ~ c2 |
+	c4. c8 ~ c2 | bes4. bes8 ~ bes2 | aes4. aes8 ~ aes2 | bes4. bes8 ~ bes2 |
+	\time 3/4
+	r4 r g
+	\time 4/4
+	c4. c8 ~ c2 | c4. c8 ~ c ees d g, | c4. c8 ~ c2 | c4. c8 ~ c2 |
+	c4. c8 ~ c4 g | c4. c8 ~ c ees d g, | c4. c8 ~ c4 g | c4. c8 ~ c2 |
+	
+	% A
+	c4. c8 ~ c2 | c4. c8 ~ c2 | c4. c8 ~ c2 | c4. c8 ~ c2 |
+	c4. c8 ~ c2 | c4. c8 ~ c2 | c4. c8 ~ c2 | c4. c8 ~ c2 |
+	c4. c8 ~ c2 | bes4. bes8 ~ bes2 | aes4. aes8 ~ aes2 | bes4. bes8 ~ bes2 |
+	f4. f8 ~ f2 | g4. g8 ~ g2 | aes4. bes8 ~ bes2 | c4. c8 ~ c4 r |
 }
 mBlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -184,7 +285,13 @@ mBlyric = \lyricmode {
 
 pc = \drummode {
 	\time 4/4
-	bd8 hh sn hh hho hh sn hh
+	
+	% Intro
+	R1*8
+	\time 3/4
+	r4 r r
+	\time 4/4
+	bd8 hh r bd ~ bd bd hh4 | bd8 hh r bd ~ bd bd hho4 | bd8 hh r bd ~ bd bd hh8 bd | bd8 hh r bd ~ bd bd hho4 |
 }
 
 \book{
@@ -195,15 +302,15 @@ pc = \drummode {
 				\set ChordNames.midiMinimumVolume = #0.0
 				\chord
 			}
+			
+			\new Staff = "Female1" <<
+				\set Staff.instrumentName = "Lead"
+				\set Staff.midiInstrument = "flute"
+				\clef treble
+				\new Voice = "VoiceFemale1" \fA
+			>>
+			% \new Lyrics = "LyricsFemale1"
 			\new ChoirStaff <<
-				\new Staff = "Female1" <<
-					\set Staff.instrumentName = "Lead"
-					\set Staff.midiInstrument = "flute"
-					\clef treble
-					\new Voice = "VoiceFemale1" \fA
-				>>
-				% \new Lyrics = "LyricsFemale1"
-
 				\new Staff = "Female2" <<
 					\set Staff.instrumentName = "Female I"
 					\set Staff.midiInstrument = "flute"
@@ -287,6 +394,10 @@ pc = \drummode {
 			\context {
 				\Score
 				\numericTimeSignature
+			}
+			\context {
+				\Staff
+				\showStaffSwitch
 			}
 			\context {
 				\Voice
