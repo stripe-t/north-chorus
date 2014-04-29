@@ -65,8 +65,8 @@ rightBracket = {
 	bookTitleMarkup = \markup {
 		\column {
 			\fill-line {
-				"Revision 1"
-				"2014/4/28"
+				"Revision 1 (WIP)"
+				"2014/4/29"
 			}
 			\fill-line {
 				\override #'(font-name . "TakaoEx明朝")
