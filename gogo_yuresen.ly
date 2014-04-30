@@ -66,7 +66,7 @@ rightBracket = {
 		\column {
 			\fill-line {
 				"Revision 1 (WIP)"
-				"2014/4/29"
+				"2014/4/30"
 			}
 			\fill-line {
 				\override #'(font-name . "TakaoEx明朝")
@@ -145,6 +145,12 @@ fA = \relative c' {
 	r4 c-.-- r c-.-- | r4 d-.-- r d-.-- | r4 f-.-- r f-.-- | r4 c-.-- r c-.-- |
 	g'4. c8 ~ c2 | d4. g,8 ~ g2 | g4. c8 ~ c2 | bes4. f8 ~ f2 |
 	g4. c8 ~ c2 | bes4. f8 ~ f2 | c'4. bes8 ~ bes2 | g4. g8 ~ \autoBeamOff g c \autoBeamOn d b16 g |
+	
+	% B
+	\change Staff = "Female1"
+	c,4 bes8 bes c4 bes8 bes | bes c c c c4 r | c bes c d | ees d c bes |
+	c bes8 bes bes c bes bes | bes4 c8 c c4 r | c bes c d | ees d ees f |
+	r r r8 ees4. | ees8-> ees-> ees-> d-> r g-.-- g-.-- g-.-- |
 }
 fAlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -170,6 +176,11 @@ fB = \relative c' {
 	r4 g-.-- r g-.-- | r4 g-.-- r g-.-- | r4 g-.-- r g-.-- | r4 g-.-- r g-.-- |
 	c4. g'8 ~ g2 | f4. d8 ~ d2 | c4. ees8 ~ ees2 | d4. bes8 ~ bes2 |
 	c4. g'8 ~ g2 | f4. d8 ~ d2 | ees4. d8 ~ d2 | c4. c8 ~ c4 r |
+	
+	% B
+	ees4 r r r | ees r g8 f ees4 | ees r r r | g, bes ees d |
+	c r r r | c r g'8 f ees4 | ees s s s | s s s s |
+	r r r r8 fis ~ | fis g-> g-> g-> g-> r r4 |
 }
 fBlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -196,7 +207,12 @@ fC = \relative c'{
 	ees4. ees8 ~ ees2 | f4. f8 ~ f2 | d4. d8 ~ d2 | ees4. ees8 ~ ees2 |
 	ees4 d8 ees ~ ees g4 g8 | f8 d4 bes8 ~ bes d d d | ees4 d8 c ees4 d8 c | d f4 d8 ~ d d ees d |
 	c4 bes8 c ~ c g' g g | f d4 bes8 ~ bes g g g | c4 d8 ees d c bes d | ees ees d ees ~ ees4 r |
-
+	
+	% B
+	\change Staff = "Female3"
+	aes4 r r r | g r ees'8 d c4 | g4 r r r | ees f g bes |
+	aes4 r r r | g r ees'8 d c4 | g4 s s s | s s s s |
+	r r r r | r8 c-> c-> ees-> d-> r r4 |
 }
 fClyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -223,6 +239,12 @@ fD = \relative c'{
 	c4 bes8 c ~ c ees ees ees | d bes4 g8 ~ g g g g | g'4 f8 g f ees c bes | c c bes c ~ c4 r |
 	c4 bes8 c ~ c ees ees ees | d bes4 g8 ~ g g g g | g4 f8 ees g4 f8 ees | f bes ~ bes bes ~ bes4 r |
 	c4 bes8 c ~ c ees ees ees | d bes4 g8 ~ g g g g | g'4 f8 g f ees c bes | c c bes c ~ c4 r |
+	
+	% B
+	\change Staff = "Female4"
+	aes4 r r r | c r g'8 c c4 | c,4 r r r | bes bes g f |
+	aes r r r | c r g'8 c c4 | ees, s s s | s s s s |
+	r r8 aes, ~ aes2 | c8-> c-> c-> b-> r2 |
 }
 fDlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -249,6 +271,10 @@ mA = \relative c' {
 	g4. g8 ~ g2 | g4. f8 ~ f2 | ees4. g8 ~ g2 | f4. d8 ~ d2 |
 	c4. c8 ~ c2 | d4. d8 ~ d2 | ees4. f8 ~ f4 d | g4. g8 ~ \autoBeamOff g c \autoBeamOn d b16 g |
 	
+	% B
+	ees4 r r r | ees r r r | g r r r | g f ees d |
+	ees r r r | ees r r r | g s s s | s s s s |
+	r8 c,4. ~ c8 c-> c-> c-> | d-> r r4 r r |
 }
 mAlyric = \lyricmode {
 	\set ignoreMelismata = ##t
@@ -272,10 +298,15 @@ mB = \relative c {
 	c4. c8 ~ c4 g | c4. c8 ~ c ees d g, | c4. c8 ~ c4 g | c4. c8 ~ c2 |
 	
 	% A
-	c4. c8 ~ c2 | c4. c8 ~ c2 | c4. c8 ~ c2 | c4. c8 ~ c2 |
-	c4. c8 ~ c2 | c4. c8 ~ c2 | c4. c8 ~ c2 | c4. c8 ~ c2 |
+	c4. c8 ~ c2 | c4. c8 ~ c2 | c4. c8 ~ c2 | c4. c8 ~ c8 g a b |
+	c4. c8 ~ c2 | c4. c8 ~ c2 | c4. c8 ~ c2 | c4. c8 ~ c4 g |
 	c4. c8 ~ c2 | bes4. bes8 ~ bes2 | aes4. aes8 ~ aes2 | bes4. bes8 ~ bes2 |
 	f4. f8 ~ f2 | g4. g8 ~ g2 | aes4. bes8 ~ bes2 | c4. c8 ~ c4 r |
+	
+	% B
+	aes4 r r r | g r r8 g a b | c4 r r r | ees bes aes g |
+	aes r r r | g r r8 g a b | c4 r r r | g' f ees bes |
+	f2 ~ f8 f-> f-> f-> | g-> r r4 r r |
 }
 mBlyric = \lyricmode {
 	\set ignoreMelismata = ##t
