@@ -60,7 +60,7 @@ melody = \relative c' {
   \tempo 4=121
   \set Score.markFormatter = #format-mark-box-alphabet
 
-  \set Score.skipTypesetting = ##t
+%  \set Score.skipTypesetting = ##t
   \mark #1
   \partial 4*2 {r8 g a b}
   c4 r8 e d c b c | d4. g8 f e d c | a4 r8 e' d c b a | g4 d'8 c r g a b |
@@ -95,38 +95,55 @@ melody = \relative c' {
   c a4 c8 ~ c d4 a8 ~ | a a( g4) r g8 g | a b4 c8 ~ c d4 a8 ~ | a a( g4) r2 |
 
   \mark #9
-  r4 r8 g e g g g | gis8. gis16 ~ gis8 a ~ a b4. | d4 c8 c ~ c a4 g8 ~ | g a r4 r8 g g g |
-  c( a) a c8 ~ c d4 a8 ~ | a a( g4) r8 g g g | f'4 e8 d ~ d c d c( | d1) \bar "||"
+  \partcombine \relative c' {
+    r4 r8 g e g g g | gis8. gis16 ~ gis8 a ~ a b4. | d4 c8 c ~ c a4 g8 ~ | g a r4 r8 g g g |
+    c( a) a c8 ~ c d4 a8 ~ | a a( g4) r8 g g g | f'4 e8 d ~ d c d c( | d1) \bar "||"
+  } \relative c {
+    r4 r8 e c e e e | e8. e16 ~ e8 e ~ e gis4. | a4 f8 f ~ f f4 e8 ~ | e e r4 r8 c c c |
+    f( c) c f ~ f g4 f8( | e) f( e4) r8 e e e | a4 a8 f ~ f f f g ~ | g1 |
+  }
 
   \mark #10
   \key g \major
-  r4 r8 d d d4 d8 ~ | d4 e8 c ~ c g'4 fis8 ~ | fis a, a a a b c e ~ | e4 d b a8 a( ~ |
-  a8 g) r4 r8 e fis g | \tuplet 3/2 {b( a b} a) a r a( b) b( | c1) ~ | c4 r a ~ a8 d ~ | d c( d4) ~ d2 ~ | d r8 g, a b \bar "||"
+  \partcombine \relative c' {
+    r4 r8 d d d4 d8 ~ | d4 e8 c ~ c g'4 fis8 ~ | fis a, a a a b c e ~ | e4 d b a8 a( ~ |
+    a8 g) r4 r8 e fis g | \tuplet 3/2 {b( a b} a) a r a( b) b( | c1) ~ | c4 r a4. d8 ~ | d d ~ d4 ~ d2 ~ | d r8 g, a b \bar "||"
+  } \relative c' {
+    r4 r8 b b b4 b8 ~ | b4 c8 e, ~ a c4 d8 ~ | d fis, fis fis fis g a a( | b4) a g fis8 fis( ~ |
+    fis8 e) r4 r8 e fis g | \tuplet 3/2 {g( fis g} e) e r e( e) e( | f1) ~ | f4 r f4. a8 ~ | a b ~ b4 ~ b2 ~ | b2 r8 e, d e |
+  }
 
   \mark #11
   \key c \major
-  c4 r8 e d c b c | d4. g8 f e d c | a4 r8 e' d c b a | g4 d'8 c r g a b |
-  c4 r8 e d c b c | d4. g8 f e d c | a4 r8 e' d c b b( | c2) r8 d c d |
-\set Score.skipTypesetting = ##f
+  \partcombine \relative c' {
+    c4 r8 e d c b c | d4. g8 f e d c | a4 r8 e' d c b a | g4 d'8 c r g a b |
+    c4 r8 e d c b c | d4. g8 f e d c | a4 r8 e' d c b b( | c2) r8 d c d |
+  } \relative c {
+    f4 r8 c' b a g a | b4. e8 c b g e | f4 r8 c' b a g f | e4 b'8 a r e d e |
+    f4 r8 c' b a g a | b4. e8 c b aes aes | f4 r8 c' b a b b( | c2) r8
+  }
+
   \mark #12
   r2 r4 r8 a | c a c a c a ~ a4 | r2 r8 g' e g | r d( e2.) |
   r2 r4 r8 a, | c a c a c c( d4) | r2 r8 g e g | r d( e2) c4
-\set Score.skipTypesetting = ##t
+
   \mark #13
-  g'1 ~ | g2 g4. g8 | g1 ~ | g2. c,4 |
-  g'1 ~ | g2 g4. g8 | g1 ~ | g2 r8 c, c d \bar "|.|"
+  <c ees g>1 ~ | q2 q4. <d f g>8 | <c e g>1 ~ | q2 c2 |
+  <c ees g>1 ~ | q2 q4. <d f g>8 | <c e g>1 ~ | q2 r8 c c d \bar "|.|"
 
   r2 r8 aes bes c \bar "||"
-
+ % \set Score.skipTypesetting = ##f
   \mark #14
   \key des \major
   des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
   des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
+
   \mark #15
   des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
-  des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c \bar "|.|"
+  des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r2
 
-  R1 \bar "|."
+  R1*4
+%  \set Score.skipTypesetting = ##t
 }
 
 melodylyric = \lyricmode {
@@ -166,29 +183,36 @@ soprano = \relative c'' {
   <a c>1 | <g b> | a2 b | c d |
 
   % H
-  s1*8
+  c4. c8 ~ c2 | b4. b8 ~ b2 | a4. a8 ~ a2 | g4. g8 ~ g4 g |
+  a4. c8 ~ c2 | c4. g8 ~ g2 | a4. c8 ~ c2 | c4. b8 ~ b4 a |
 
   % I
-  s1*8
+  g2. c4 | b2 e | c2. d4 | e1 |
+  f1 | e2 d8 c4 g8 | a2 e' | r8 d r d ~ d2 |
 
   % J
   \key g \major
-  s1*10
+  b8 r r4 r8 b ~ b4 | c8 r r c ~ c2 | a8 r r4 r8 a ~ a4 | b8 r r d g4 fis |
+  e2 r | r4 cis e cis | c1 ~ | c4 r a4. d8 ~ | d d ~ d2. | r8 d d4 e8 r r4 |
 
   % K
   \key c \major
-  s1*8
+  r4 e d r | d8 d r c ~ c2 | r4 e d r | d8 d r c ~ c2 |
+  r4 e d r | d8 d r c ~ c4 f | r4 e d r | c4. c8 ~ c4 r |
 
   % L
   r4 e d r | b8 b r a ~ a2 | r4 e' d r | d8 d r c ~ c c e g |
   r4 e d r | d8 d r c ~ c4 f | <<{ e4. d8 ~ d4 g }\\{ r4 e d r }>> | e2 r |
 
   % M
-  s1*8
+  ees1 ~ | ees2 f | e1 ~ | e |
+  ees1 ~ | ees2 f | g1 ~ | g2 r |
   s1
 
   % N
   \key des \major
+  bes,2. c4 | aes4. f8 ~ f f ges aes | bes2. c4 | aes4. ees'8 des c bes aes |
+  bes2. c4 | aes4. aes'8 ges f ees des | bes2. c4 | aes2 aes' |
   s1*8
 
   % O
@@ -232,30 +256,35 @@ alto = \relative c'{
   r4 e8 c d a'4 g8 ~ | g d4 e8 ~ e b4 g8 ~ | g2 d' | e f |
 
   % H
-  s1*8
+  e4. e8 ~ e2 | e4. e8 ~ e2 | f4. f8 ~ f2 | e4. e8 ~ e4 e |
+  e4. a8 ~ a2 | e4. e8 ~ e2 | f4. f8 ~ f2 | g4. g8 ~ g4 d |
 
   % I
-  s1*8
+  e2. a4 | gis2 a4 b | a2 c | c1 |
+  c2 d | c g | f4 a c2 | r8 c r b ~ b2 |
 
   % J
   \key g \major
-  s1*10
+  d,8 r r4 r8 d ~ d4 | e8 r r e ~ e2 | fis8 r r4 r8 fis ~ fis4 | g8 r r g ~ \tuplet 3/2 { g4 b a } |
+  g2 b | a1 | a ~ | a4 r e4. a8 ~ | a b ~ b2. | r8 g g4 a8 r r4 |
 
   % K
   \key c \major
-  s1*8
+  r4 a b r | b8 b r a ~ a2 | r4 a b r | b8 b r a ~ a2 |
+  r4 a b r | b8 b r a ~ a4 bes | r4 a b r | f4. e8 ~ e4 r |
 
   % L
   r4 a b r | e,8 e r e ~ e2 | r4 a b r | g8 g r a ~ a2 |
-  r4 a b r | e,8 e r e ~ e4 bes' | <<{ a4. g8 ~ g4 d' }\\{ r4 a b r }>> | c2 r |
+  r4 a b r | b8 b r a ~ a4 bes | <<{ a4. g8 ~ g4 d' }\\{ r4 a b r }>> | c2 r |
 
   % M
-  s1*8
+  c,1 ~ | \tuplet 3/2 { c4 c f } \tuplet 3/2 { bes a aes } | g1 ~ | \tuplet 3/2 { g4 d e } \tuplet 3/2 { g a c }
+  g1 ~ | g4 f bes2 | b1 ~ | b2 r
   s1
 
   % N
   \key des \major
-  s1*8
+  ges2. aes4 | f4. des8 ~ des des ees f | ges2. aes4 | f4. c'8 bes aes ges f |
 
   % O
   s1*8
@@ -302,30 +331,35 @@ tenor = \relative c' {
   g | a b
 
   % H
-  s1*8
+  g4. g8 ~ g2 | gis4. gis8 ~ gis2 | a4. a8 ~ a2 | g4. g8 ~ g4 g |
+  a4. a8 ~ a2 | g4. c8 ~ c2 | c4. a8 ~ a2 | g4. d'8 ~ d4 b |
 
   % I
-  s1*8
+  c1 | e4 b a gis | a4 f2 a4 | g1 |
+  a1 | g4 e' c g | a4 c2. | r8 g r g ~ g2 |
 
   % J
   \key g \major
-  s1*10
+  fis8 r r4 r8 fis ~ fis4 | g8 r r g ~ g2 | a8 r r4 r8 a ~ a4 | b4 a \tuplet 3/2 { g fis a } |
+  g1 | <e cis'> | <f c'> ~ | q4 r c'4. f8 ~ | f <\parenthesize d g> ~ q2. | r8 b b4 cis8 r r4 |
 
   % K
   \key c \major
-  s1*8
+  c4. b8 ~ b2 | g4. e8 ~ e2 | c'4. b8 ~ b2 | g4. e8 ~ e2 |
+  c'4. b8 ~ b4 a | g4 g8 a ~ a4 ges | g4. g8 ~ g2 | g4. g8 ~ g4 r |
 
   % L
   r4 c d r | g,8 g r c ~ c2 | r4 c d r | e8 e r e ~ e2 |
-  r4 c d r | g,8 g r g ~ g4 ges | r4 c d r | g2 r |
+  r4 c d r | g,8 g r g ~ g4 ges | r4 c d r | g,2 r |
 
   % M
-  s1*8
+  ees1 ~ | \tuplet 3/2 { ees4 f g } bes f' | e1 ~ | \tuplet 3/2 { e4 g, d' } c g |
+  ees1 ~ | \tuplet 3/2 { ees4 f g } \tuplet 3/2 { bes ees f } | e1 ~ | e2 r |
   s1
 
   % N
   \key des \major
-  s1*8
+  r8 ges,^\markup{ Ten: たとえばきみがいるだけでつよくなれる } aes bes aes4. c8 | des4 aes f ges8( aes) | ges2 aes | des4. ges8 f ees des c |
 
   % O
   s1*8
@@ -368,30 +402,37 @@ bass = \relative c {
   g4 g g g | g g g g | g g g g | g g g g |
 
   % H
-  s1*8
+  c4. c8 ~ c4. g8 | e4. e8 ~ e4. e8 | f4. f8 ~ f4. g8 | c4. c8 ~ c4. g8 |
+  f4. f8 ~ f4. g8 | c4. c8 ~ c4. c8 | d4. d8 ~ d4. a8 | g4. g8 ~ g4 g8 g |
 
   % I
-  s1*8
+  c4. c8 ~ c4. g8 | e4. e8 ~ e4. e8 | f4. f8 ~ f4. g8 | c4. c8 ~ c4. g8 |
+  f4. f8 ~ f4. g8 | c4. c8 ~ c4. c8 | d4. d8 ~ d4. a8 | g4 g8 g ~ g g a ais |
 
   % J
   \key g \major
-  s1*10
+  b8 r fis b ~ b b4 d8 | c8 r g c ~ c c d e | d8 r a d ~ d fis, a d | g, r r g fis r r fis |
+  e4 e e e | a a a a8 g | f4 f f f | f f f f |
+  g8 g r g g r g g | r g g4 a8 r r4 |
 
   % K
   \key c \major
-  s1*8
+  d4 d g, g | c c a a | d d g, g | c c8 a ~ a a c a |
+  d4 d8 g, ~ g4 f | e4 b'8 a ~ a4 aes | g4 g g g | c4 g8 c ~ c4 r |
 
   % L
-  <<{ r4 f' g r }\\{ d4 r8 d g,4 r8 g }>> | c4 r8 c a4 r8 a | <<{ r4 f' g r }\\{ d4 r8 d g,4 r8 g }>> | c4 r8 c a4 r8 a |
+  <<{ r4 f g r }\\{ d4 r8 d g,4 r8 g }>> | c4 r8 c a4 r8 a | <<{ r4 f' g r }\\{ d4 r8 d g,4 r8 g }>> | c4 r8 c a4 r8 a |
   <<{ r4 f' g r }\\{ d4 r8 d g,4 r8 g }>> | e'4 r8 e a,4 aes | <<{ r4 f' g r }\\{ g,4 r8 g g4 r8 g }>> | c4 g8 c ~ c4 r |
 
   % M
-  s1*8
+  aes4 aes aes aes | aes aes aes aes | c c c c | c c c c |
+  aes4 aes aes aes | aes aes aes aes | c c c c | c c c c |
   s1
 
   % N
   \key des \major
-  s1*8
+  ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des | ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des |
+  ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des | ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des |
 
   % O
   s1*8
