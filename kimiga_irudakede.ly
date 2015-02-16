@@ -60,7 +60,7 @@ melody = \relative c' {
   \tempo 4=121
   \set Score.markFormatter = #format-mark-box-alphabet
 
-%  \set Score.skipTypesetting = ##t
+  %\set Score.skipTypesetting = ##t
   \mark #1
   \partial 4*2 {r8 g a b}
   c4 r8 e d c b c | d4. g8 f e d c | a4 r8 e' d c b a | g4 d'8 c r g a b |
@@ -132,18 +132,18 @@ melody = \relative c' {
   <c ees g>1 ~ | q2 q4. <d f g>8 | <c e g>1 ~ | q2 r8 c c d \bar "|.|"
 
   r2 r8 aes bes c \bar "||"
- % \set Score.skipTypesetting = ##f
+
   \mark #14
   \key des \major
   des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
   des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
 
+%\set Score.skipTypesetting = ##f
   \mark #15
   des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
   des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r2
 
-  R1*4
-%  \set Score.skipTypesetting = ##t
+  R1*4 \bar "|."
 }
 
 melodylyric = \lyricmode {
@@ -213,11 +213,16 @@ soprano = \relative c'' {
   \key des \major
   bes,2. c4 | aes4. f8 ~ f f ges aes | bes2. c4 | aes4. ees'8 des c bes aes |
   bes2. c4 | aes4. aes'8 ges f ees des | bes2. c4 | aes2 aes' |
-  s1*8
 
   % O
-  s1*8
-  s1
+  <<{
+    \tiny r4 r8 f, es des c des | es4. as8 ges f es des | bes4 r8 f' ees f ges g | as4 es'8 des r aes bes c |
+    des4 r8 des c bes aes bes | c4. c8 des c bes aes | ges4 r8 f' ees des c bes | aes4 ees'8 des r
+  }\\{
+    r4 des c r | ees8 ees r des ~ des2 | r4 des c r | ees8 ees r des ~ des2 |
+    r4 des c r | ees8 ees r des ~ des2 | r4 des c r | ees8 ees r des ~ des8
+  }>>
+  aes bes c | des1 | ees | f ~ | f |
 }
 
 sopranolyric = \lyricmode {
@@ -285,10 +290,17 @@ alto = \relative c'{
   % N
   \key des \major
   ges2. aes4 | f4. des8 ~ des des ees f | ges2. aes4 | f4. c'8 bes aes ges f |
+  r8 ges^\markup { Alt. いつでもいつでもおたがいをみつめてる } aes bes aes4 c | des aes f ges8 aes | bes4 des c c8 bes | aes4 ees'8 des <<{\tiny r8 aes bes c}\\{r2}>> |
 
   % O
-  s1*8
-  s1
+  <<{
+    des4 r8 f, es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
+    des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 des' c bes aes ges | f4 c'8 bes r
+  }\\{
+    r4 bes aes r | aes8 aes r f ~  f2 | r4 bes aes r | aes8 aes r f ~ f2
+    r4 bes aes r | aes8 aes r f ~  f2 | r4 bes aes r | aes8 aes r f ~ f8
+  }>>
+  aes8 bes c | bes1 ~ | aes2 a4. gis16 g | f1 ~ | f |
 }
 altolyric = \lyricmode {
 
@@ -360,10 +372,17 @@ tenor = \relative c' {
   % N
   \key des \major
   r8 ges,^\markup{ Ten: たとえばきみがいるだけでつよくなれる } aes bes aes4. c8 | des4 aes f ges8( aes) | ges2 aes | des4. ges8 f ees des c |
+  bes2. ees,4 | f4. c'8 bes aes ges f | ges2. aes4 | f2 <<{\tiny r8 aes bes c}\\{f2}>> |
 
   % O
-  s1*8
-  s1
+  <<{
+    des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
+    des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r
+  }\\{
+    r4 ges, aes r | f8 f r bes ~ bes2 | r4 ges aes r | f8 f r bes ~ bes2
+    r4 ges aes r | f8 f r bes ~ bes2 | r4 ges aes r | f8 f r bes ~ bes8
+  }>>
+  aes8 bes c | <des f>1 | <c ees> | c( | d) |
 }
 tenorlyric = \lyricmode {
 
@@ -432,11 +451,18 @@ bass = \relative c {
   % N
   \key des \major
   ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des | ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des |
-  ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des | ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des |
+  ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des | ees4 r8 ees aes,4 r8 aes | des4 r8 des <<{\tiny r8 aes' bes c}\\{bes,4 c8 des}>> |
 
   % O
-  s1*8
-  s1
+  <<{
+    des'4 r8 f, es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r des ees f |
+    ges4 r8 ges aes ges f ges | aes4. c8 bes8 aes ges f | bes4 r8 bes aes bes c des | c4 f,8 bes
+
+  }\\{
+    ees,4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des | ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des |
+    ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des | ees4 r8 ees aes,4 r8 aes | des4 r8 des
+  }>>
+  r8 aes bes c | ges'1 | f2 f, | bes1 ~ | bes |
 }
 basslyric = \lyricmode {
 
