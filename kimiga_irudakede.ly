@@ -8,11 +8,13 @@
 #(set-global-staff-size 18)
 
 \paper {
+  system-count = #20
+  page-count = #6
   bookTitleMarkup = \markup {
     \column {
       \fill-line {
         "Revision 1"
-        "2014/12/07"
+        "2015/2/17"
       }
       \fill-line {
         \override #'(font-name . "TakaoEx明朝")
@@ -120,7 +122,7 @@ melody = \relative c' {
     c4 r8 e d c b c | d4. g8 f e d c | a4 r8 e' d c b b( | c2) r8 d c d |
   } \relative c {
     f4 r8 c' b a g a | b4. e8 c b g e | f4 r8 c' b a g f | e4 b'8 a r e d e |
-    f4 r8 c' b a g a | b4. e8 c b aes aes | f4 r8 c' b a b b( | c2) r8
+    f4 r8 c' b a g a | b4. e8 c b aes f | d4 r8 c' b a b b( | c2) r8
   }
 
   \mark #12
@@ -129,14 +131,14 @@ melody = \relative c' {
 
   \mark #13
   <c ees g>1 ~ | q2 q4. <d f g>8 | <c e g>1 ~ | q2 c2 |
-  <c ees g>1 ~ | q2 q4. <d f g>8 | <c e g>1 ~ | q2 r8 c c d \bar "|.|"
+  <c ees g>1 ~ | q2 q4. <d f g>8 | <c e g>1 ~ |\break q2 r8 c c d |
 
-  r2 r8 aes bes c \bar "||"
+  \hideNotes c8^\markup {後で書く :)} \repeat unfold 23 { c8 } \unHideNotes r2 r8 aes bes c \bar "||" \break
 
   \mark #14
   \key des \major
   des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
-  des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
+  des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as^\markup {La} bes c |
 
 %\set Score.skipTypesetting = ##f
   \mark #15
@@ -155,28 +157,28 @@ soprano = \relative c'' {
   \key c \major
   % A
   r2
-  e4. d8 ~ d2 | d4. c8 ~ c2 | e4. d8 ~ d2 | d4. c8 ~ c2 |
+  e4.^\markup {Fu} d8 ~ d2 | d4. c8 ~ c2 | e4. d8 ~ d2 | d4. c8 ~ c2 |
   e4. d8 ~ d2 | d4. c8 ~ c4 f | e4. d8 ~ d2 | c4. c8 ~ c2 |
 
   % B
-  <a c>1 | <g b> | a2 b | c d |
+  <a c>1^\markup {Lu} | <g b> | a2 b | c d |
 
   % C
-  c4. c8 ~ c2 | b4. b8 ~ b2 | a4. a8 ~ a2 | g4. g8 ~ g4 g |
-  a4. c8 ~ c2 | c4. g8 ~ g2 | a4. c8 ~ c2 | c4. b8 ~ b4 a |
+  c4.^\markup {Tu} c8 ~ c2 | b4. b8 ~ b2 | a4. a8 ~ a2 | g4. g8 ~ g4 g |
+  a4.^\markup {La} c8 ~ c2 | c4. g8 ~ g2 | a4. c8 ~ c2 | c4. b8 ~ b4 a |
 
   % D
-  g2. c4 | b2 e | c2. d4 | e1 |
-  f1 | e2 d8 c4 g8 | a2 e' | r8 d r d ~ d2 |
+  g2.^\markup {Lu} c4 | b2 e | c2. d4 | e1 |
+  f1 | e2 d8 c4 g8 | a2 e' | r8 d^\markup {Tu} r d ~ d2 |
 
   % E
   \key g \major
-  b8 r r4 r8 b ~ b4 | c8 r r c ~ c2 | a8 r r4 r8 a ~ a4 | b8 r r d g4 fis |
-  e2 r | r4 cis e cis | c1 ~ | c4 r a4. d8 ~ | d d ~ d2. | r8 d d4 e8 r r4 |
+  b8^\markup {Tu} r r4 r8 b ~ b4 | c8 r r c ~ c2 | a8 r r4 r8 a ~ a4 | b8 r r d g4^\markup {La} fis |
+  e2 r | r4 cis e cis | c1 ~ | c4 r a4.^\markup {True Heart} d8 ~ | d d ~ d2. | r8 d^\markup {Tu} d4 e8 r r4 |
 
   % F
   \key c \major
-  r4 e d r | d8 d r c ~ c2 | r4 e d r | d8 d r c ~ c2 |
+  r4 e^\markup {La} d r | d8 d r c ~ c2 | r4 e d r | d8 d r c ~ c2 |
   r4 e d r | d8 d r c ~ c4 f | r4 e d r | c4. c8 ~ c4 r |
 
   % G
@@ -198,31 +200,31 @@ soprano = \relative c'' {
   % K
   \key c \major
   r4 e d r | d8 d r c ~ c2 | r4 e d r | d8 d r c ~ c2 |
-  r4 e d r | d8 d r c ~ c4 f | r4 e d r | c4. c8 ~ c4 r |
+  r4 e d r | d8 d r c ~ c4 f | r4 e d r | c4. c8 ~ c4 c8 d |
 
   % L
-  r4 e d r | b8 b r a ~ a2 | r4 e' d r | d8 d r c ~ c c e g |
-  r4 e d r | d8 d r c ~ c4 f | <<{ e4. d8 ~ d4 g }\\{ r4 e d r }>> | e2 r |
+  r4 e^\markup {True Heart} d r | b8^\markup {Tu} b r a ~ a2 | r4 e' d r | d8 d r c ~ c c^\markup {Lu} e g |
+  r4 e d r | d8 d r c ~ c4 f | <<{ e4.^\markup {La} d8 ~ d4 g }\\{ r4 e_\markup {True Heart} d r }>> | e2 r |
 
   % M
-  ees1 ~ | ees2 f | e1 ~ | e |
+  ees1^\markup {La} ~ | ees2 f | e1 ~ | e |
   ees1 ~ | ees2 f | g1 ~ | g2 r |
-  s1
+  s1*4
 
   % N
   \key des \major
-  bes,2. c4 | aes4. f8 ~ f f ges aes | bes2. c4 | aes4. ees'8 des c bes aes |
+  bes,2.^\markup {Lu} c4 | aes4. f8 ~ f f ges aes | bes2. c4 | aes4. ees'8 des c bes aes |
   bes2. c4 | aes4. aes'8 ges f ees des | bes2. c4 | aes2 aes' |
 
   % O
   <<{
-    \tiny r4 r8 f, es des c des | es4. as8 ges f es des | bes4 r8 f' ees f ges g | as4 es'8 des r aes bes c |
+    \tiny r4 r8 f,_\markup {La (2年)} es des c des | es4. as8 ges f es des | bes4 r8 f' ees f ges g | as4 es'8 des r aes bes c |
     des4 r8 des c bes aes bes | c4. c8 des c bes aes | ges4 r8 f' ees des c bes | aes4 ees'8 des r
   }\\{
-    r4 des c r | ees8 ees r des ~ des2 | r4 des c r | ees8 ees r des ~ des2 |
+    r4 des^\markup {Lu} c r | ees8 ees r des ~ des2 | r4 des c r | ees8 ees r des ~ des2 |
     r4 des c r | ees8 ees r des ~ des2 | r4 des c r | ees8 ees r des ~ des8
   }>>
-  aes bes c | des1 | ees | f ~ | f |
+  aes^\markup {La} bes c | des1 | ees^\markup {True} | f^\markup {Heart} ~ | f |
 }
 
 sopranolyric = \lyricmode {
@@ -237,7 +239,7 @@ alto = \relative c'{
   f4. a8 ~ a2 | g4. g8 ~ g4 bes | a4. g8 ~ g2 | e4. e8 ~ e2 |
 
   % B
-  r4 e8 c d a'4 g8 ~ | g d4 e8 ~ e b4 g8 ~ | g2 d' | e f |
+  r4 e8^\markup {Ta とか La とか} c d a'4 g8 ~ | g d4 e8 ~ e b4 g8 ~ | g2 d'^\markup {Lu} | e f |
 
   % C
   e4. e8 ~ e2 | e4. e8 ~ e2 | f4. f8 ~ f2 | e4. e8 ~ e4 e |
@@ -249,7 +251,7 @@ alto = \relative c'{
 
   % E
   \key g \major
-  d,8 r r4 r8 d ~ d4 | e8 r r e ~ e2 | fis8 r r4 r8 fis ~ fis4 | g8 r r g ~ \tuplet 3/2 { g4 b a } |
+  d,8 r r4 r8 d ~ d4 | e8 r r e ~ e2 | fis8 r r4 r8 fis ~ fis4 | g8 r r g ~ \tuplet 3/2 { g4 b^\markup {La} a } |
   g2 b | a1 | a ~ | a4 r e4. a8 ~ | a b ~ b2. | r8 g g4 a8 r r4 |
 
   % F
@@ -276,7 +278,7 @@ alto = \relative c'{
   % K
   \key c \major
   r4 a b r | b8 b r a ~ a2 | r4 a b r | b8 b r a ~ a2 |
-  r4 a b r | b8 b r a ~ a4 bes | r4 a b r | f4. e8 ~ e4 r |
+  r4 a b r | b8 b r a ~ a4 bes | r4 a b r | f4. e8 ~ e4 g |
 
   % L
   r4 a b r | e,8 e r e ~ e2 | r4 a b r | g8 g r a ~ a2 |
@@ -285,12 +287,12 @@ alto = \relative c'{
   % M
   c,1 ~ | \tuplet 3/2 { c4 c f } \tuplet 3/2 { bes a aes } | g1 ~ | \tuplet 3/2 { g4 d e } \tuplet 3/2 { g a c }
   g1 ~ | g4 f bes2 | b1 ~ | b2 r
-  s1
+  s1*4
 
   % N
   \key des \major
   ges2. aes4 | f4. des8 ~ des des ees f | ges2. aes4 | f4. c'8 bes aes ges f |
-  r8 ges^\markup { Alt. いつでもいつでもおたがいをみつめてる } aes bes aes4 c | des aes f ges8 aes | bes4 des c c8 bes | aes4 ees'8 des <<{\tiny r8 aes bes c}\\{r2}>> |
+  r8 ges^\markup { いつでもいつでもおたがいをみつめてる } aes bes aes4 c | des aes f ges8 aes | bes4 des c c8 bes | aes4 ees'8 des <<{\tiny r8 aes bes c}\\{r2}>> |
 
   % O
   <<{
@@ -300,7 +302,7 @@ alto = \relative c'{
     r4 bes aes r | aes8 aes r f ~  f2 | r4 bes aes r | aes8 aes r f ~ f2
     r4 bes aes r | aes8 aes r f ~  f2 | r4 bes aes r | aes8 aes r f ~ f8
   }>>
-  aes8 bes c | bes1 ~ | aes2 a4. gis16 g | f1 ~ | f |
+  aes8 bes c | bes1 | aes2 a4. gis16 g | f1 ~ | f |
 }
 altolyric = \lyricmode {
 
@@ -314,7 +316,7 @@ tenor = \relative c' {
   c'4. b8 ~ b2 | b4. e,8 ~ e4 ges | f4. b8 ~ b2 | g4. g8 ~ g2 |
 
   % B
-  f1 | g | f2 g | a b |
+  f1^\markup {Lu} | g | f2 g | a b |
 
   % C
   g4. g8 ~ g2 | gis4. gis8 ~ gis2 | a4. a8 ~ a2 | g4. g8 ~ g4 g |
@@ -326,12 +328,12 @@ tenor = \relative c' {
 
   % E
   \key g \major
-  fis8 r r4 r8 fis ~ fis4 | g8 r r g ~ g2 | a8 r r4 r8 a ~ a4 | b4 a \tuplet 3/2 { g fis a } |
-  g1 | <e cis'> | <f c'> ~ | q4 r c'4. f8 ~ | f <\parenthesize d g> ~ q2. | r8 b b4 cis8 r r4 |
+  fis8 r r4 r8 fis ~ fis4 | g8 r r g ~ g2 | a8 r r4 r8 a ~ a4 | b4^\markup {La} a \tuplet 3/2 { g fis a } |
+  g1 | <e cis'>^\markup {Ah} | <f c'> ~ | q4 r c'4. f8 ~ | f <\parenthesize d g> ~ q2. | r8 b b4 cis8 r r4 |
 
   % F
   \key c \major
-  c4. b8 ~ b2 | g4. e8 ~ e2 | c'4. b8 ~ b2 | g4. e8 ~ e2 |
+  c4.^\markup {La} b8 ~ b2 | g4. e8 ~ e2 | c'4. b8 ~ b2 | g4. e8 ~ e2 |
   c'4. b8 ~ b4 a | g4 g8 a ~ a4 ges | g4. g8 ~ g2 | g4. g8 ~ g4 r |
 
   % G
@@ -358,7 +360,7 @@ tenor = \relative c' {
   % K
   \key c \major
   c4. b8 ~ b2 | g4. e8 ~ e2 | c'4. b8 ~ b2 | g4. e8 ~ e2 |
-  c'4. b8 ~ b4 a | g4 g8 a ~ a4 ges | g4. g8 ~ g2 | g4. g8 ~ g4 r |
+  c'4. b8 ~ b4 a | g4 g8 a ~ a4 ges | g4. g8 ~ g2 | g4. g8 ~ g4 g |
 
   % L
   r4 c d r | g,8 g r c ~ c2 | r4 c d r | e8 e r e ~ e2 |
@@ -367,11 +369,11 @@ tenor = \relative c' {
   % M
   ees1 ~ | \tuplet 3/2 { ees4 f g } bes f' | e1 ~ | \tuplet 3/2 { e4 g, d' } c g |
   ees1 ~ | \tuplet 3/2 { ees4 f g } \tuplet 3/2 { bes ees f } | e1 ~ | e2 r |
-  s1
+  s1*4
 
   % N
   \key des \major
-  r8 ges,^\markup{ Ten: たとえばきみがいるだけでつよくなれる } aes bes aes4. c8 | des4 aes f ges8( aes) | ges2 aes | des4. ges8 f ees des c |
+  r8 ges,^\markup{ たとえばきみがいるだけでつよくなれる } aes bes aes4. c8 | des4 aes f ges8( aes) | ges2 aes | des4. ges8 f ees des c |
   bes2. ees,4 | f4. c'8 bes aes ges f | ges2. aes4 | f2 <<{\tiny r8 aes bes c}\\{f2}>> |
 
   % O
@@ -396,15 +398,15 @@ bass = \relative c {
   d4. g,8 ~ g2 | e'4. a,8 ~ a4 aes | g4. g8 ~ g2 | c4. c8 ~ c2 |
 
   % B
-  g4 g g g | g g g g | g g g g | g g g g |
+  g4^\markup {Dun} g g g | g g g g | g g g g | g g g g |
 
   % C
-  c4. c8 ~ c4. g8 | e4. e8 ~ e4. e8 | f4. f8 ~ f4. g8 | c4. c8 ~ c4. g8 |
+  c4.^\markup {Du とか Dun とか} c8 ~ c4. g8 | e4. e8 ~ e4. e8 | f4. f8 ~ f4. g8 | c4. c8 ~ c4. g8 |
   f4. f8 ~ f4. g8 | c4. c8 ~ c4. c8 | d4. d8 ~ d4. a8 | g4. g8 ~ g4 g8 g |
 
   % D
   c4. c8 ~ c4. g8 | e4. e8 ~ e4. e8 | f4. f8 ~ f4. g8 | c4. c8 ~ c4. g8 |
-  f4. f8 ~ f4. g8 | c4. c8 ~ c4. c8 | d4. d8 ~ d4. a8 | g4 g8 g ~ g g a ais |
+  f4. f8 ~ f4. g8 | c4. c8 ~ c4. c8 | d4. d8 ~ d4. a8 | g4 g8 g ~ g g^\markup {Du} a ais |
 
   % E
   \key g \major
@@ -437,16 +439,16 @@ bass = \relative c {
   % K
   \key c \major
   d4 d g, g | c c a a | d d g, g | c c8 a ~ a a c a |
-  d4 d8 g, ~ g4 f | e4 b'8 a ~ a4 aes | g4 g g g | c4 g8 c ~ c4 r |
+  d4 d8 g, ~ g4 f | e4 b'8 a ~ a4 aes | g4 g g g | c4 g8 c ~ c4 c |
 
   % L
-  <<{ r4 f g r }\\{ d4 r8 d g,4 r8 g }>> | c4 r8 c a4 r8 a | <<{ r4 f' g r }\\{ d4 r8 d g,4 r8 g }>> | c4 r8 c a4 r8 a |
+  <<{ r4 f g r }\\{ d4_\markup {Dun, Du} r8 d g,4 r8 g }>> | c4 r8 c a4 r8 a | <<{ r4 f' g r }\\{ d4 r8 d g,4 r8 g }>> | c4 r8 c a4 r8 a |
   <<{ r4 f' g r }\\{ d4 r8 d g,4 r8 g }>> | e'4 r8 e a,4 aes | <<{ r4 f' g r }\\{ g,4 r8 g g4 r8 g }>> | c4 g8 c ~ c4 r |
 
   % M
   aes4 aes aes aes | aes aes aes aes | c c c c | c c c c |
   aes4 aes aes aes | aes aes aes aes | c c c c | c c c c |
-  s1
+  s1*4
 
   % N
   \key des \major
@@ -471,7 +473,10 @@ basslyric = \lyricmode {
 \book{
   \score{
     <<
-      \new Staff = "Melody" <<
+      \new Staff = "Melody" \with {
+        %\remove Part_combine_engraver
+        printPartCombineTexts = ##f
+      }<<
           \set Staff.instrumentName = "Melo."
           \set Staff.midiInstrument = "flute"
           \clef "treble_8"
