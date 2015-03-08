@@ -128,7 +128,7 @@ soprano = \relative c' {
   des c des c}>> \oneVoice r c c c | des c des c r c c des | ees des ees des a bes des c | c bes c des r2 |
   des1(\mp | c2 ees4 c | bes1 | aes4) r \mark #5 r2 |
   \bar "||" \key b \major
-  dis1\mp\( ~ | dis2 ~ dis8 e dis b | gis2\) b4\( cis | dis2\) r2 |
+  dis1\mp ~ | dis2 ~ dis8 e\( dis b | gis2\) b4\( cis | dis2\) r2 |
   r8 fis,\mf\cresc fis d fis4 gis8 b ~ | b a gis gis a4 e8\< f16 fis | a8->\! fis-> r b-> fis-> r \tuplet 3/2 {e\< fis a} | b cis( b) cis b2 ~ | b2. r4\! |
   \mark #6
   \bar "||" \key fis \major
@@ -679,9 +679,9 @@ pianolh = \relative c, {
   <b,,, b'>4. <b' fis'>8 ~ q2 | <b, fis'>2. \voiceTwo r4 \oneVoice |
   e8[( b' e]) <e b'>8 ~ q4 b8 <e, b' e> ~ | q2 ~ q8 <cis' gis' eis'>4.--\arpeggio |
   <b, b'>4. b'8 <cis cis'>4 <b b'>8 <ais ais'> ~ | <<{\voiceTwo q2 <dis dis'>}\new Voice{\rh \voiceTwo r8 cis'_\markup{\italic "m.g."} <eis ais>4 \lh \voiceOne r8 ais, fis' cis}>> |
-  <gis, gis'>4^- <dis' ais' b>^- <cis gis'>^- <cis, cis'>^- | <<{\voiceOne fis'4 e}\new Voice{\voiceTwo fis,2}>> \oneVoice <fis cis' gis'>2\arpeggio |
+  \oneVoice <gis, gis'>4_- <dis' ais' b>^- <cis gis'>^- <cis, cis'>_- | <<{\voiceOne fis'4 e}\new Voice{\voiceTwo fis,2}>> \oneVoice <fis cis' gis'>2\arpeggio |
   <<{b4. b8}\\{b,2}>> <cis cis'>4 <b b'>8 <ais ais'> ~ | <<{\voiceTwo q2 <dis dis'>}\new Voice{\voiceOne r8 cis' <eis ais>4 r8 ais, fis' cis}>> |
-  <b, b'>2 <cis cis'> | <<{\mergeDifferentlyHeadedOn fis8 \mergeDifferentlyHeadedOff cis' fis cis g d' a'-- g--}\\{fis,2 <g, g'>4 <b' d>--}>>
+  \oneVoice <b, b'>2 <cis cis'> | <<{\mergeDifferentlyHeadedOn fis8 \mergeDifferentlyHeadedOff cis' fis cis g d' a'-- g--}\\{fis,2 <g, g'>4 <b' d>--}>>
   \key g \major
   <<{r8 g'( c b a8) a, s4 | r8 fis' a g fis g d b}\\{<c, c'>2 <d' a'>4 \oneVoice <c, c'>8-> <b b'>-> ~ | \voiceTwo q2 <e b'>}>>
   <<{r8 e' <g c>4 r8 fis <ais c d>4 }\\{<a,, a'>2 <d d'> }>> <g g'>8-> <fis fis'>-> <f f'>-> <e e'>-> ~ q <e, e'>->-- ~ q16 <b' b'>8.->-- |
