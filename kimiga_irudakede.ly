@@ -58,92 +58,92 @@
 }
 
 melody = \relative c' {
-  \key c \major
+  \key des \major
   \tempo 4=121
   \set Score.markFormatter = #format-mark-box-alphabet
 
   %\set Score.skipTypesetting = ##t
   \mark #1
-  \partial 4*2 {r8 g a b}
-  c4 r8 e d c b c | d4. g8 f e d c | a4 r8 e' d c b a | g4 d'8 c r g a b |
-  c4 r8 e d c b c | d4. g8 f e d c | a4 r8 e' d c b b( | c2.) r4 |
+  \partial 4*2 {r8 as bes c}
+  des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
+  des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c c( | des2.) r4 |
 
   \mark #2
   R1*4
 
   \mark #3
-  r4 r8 g e g g g | gis8. gis16 ~ gis8 a ~ a b4 b8( | d4) c8 c ~ c a4 g8 ~ | g a r4 r g8 g |
-  c a4 c8 ~ c d4 a8 ~ | a a( g4) r g8 g | a( b4) c8 ~ c d4 a8 ~ | a a( g4) r2 |
+  r4 r8 as f as as as | a8. a16 ~ a8 bes ~ bes c4 c8( | es4) des8 des ~ des bes4 as8 ~ | as bes r4 r as8 as |
+  des bes4 des8 ~ des es4 bes8 ~ | bes bes( as4) r as8 as | bes( c4) des8 ~ des es4 bes8 ~ | bes bes( as4) r2 |
 
   \mark #4
-  r4 r8 g e g g g | gis8. gis16 ~ gis8 a ~ a b4 b8( | d4) c8 c ~ c a4 g8 ~ | g a r4 r g8 g |
-  c a4 c8 ~ c d4 a8 ~ | a a( g4) r g8 g | a4 b8 c ~ c a4 c8( | d1) \bar "||"
+  r4 r8 as f as as as | a8. a16 ~ a8 bes ~ bes c4 c8( | es4) des8 des ~ des bes4 as8 ~ | as bes r4 r as8 as |
+  des bes4 des8 ~ des es4 bes8 ~ | bes bes( as4) r as8 as | bes4 c8 des ~ des bes4 des8( | es1) \bar "||"
 
   \mark #5
-  \key g \major
-  r4 r8 d d d4 d8 ~ | d4 e8 c ~ c g'4 fis8 ~ | fis a, a a a b c e( ~ | e d) d b ~ b a4 b16 a ~ |
-  a8 g r4 r8 e fis g | \tuplet 3/2 {b( a b} a) a r a( b) b( | c1 ~ | c4) r a ~ a8 d ~ | d d ~ d2. ~ | d2 r8 g, a b \bar "||"
+  \key as \major
+  r4 r8 es es es4 es8 ~ | es4 f8 des ~ des as'4 g8 ~ | g bes, bes bes bes c des f( ~ | f es) es c ~ c bes4 c16 bes ~ |
+  bes8 as r4 r8 f g as | \tuplet 3/2 {c( bes c} bes) bes r bes( c) c( | des1 ~ | des4) r bes ~ bes8 es ~ | es es ~ es2. ~ | es2 r8 as, bes c \bar "||"
 
   \mark #6
-  \key c \major
-  c4 r8 e d c b c | d4. g8 f e d c | a4 r8 e' d c b a | g4 d'8 c r g a b |
-  c4 r8 e d c b c | d4. g8 f e d c | a4 r8 e' d c b b( | c2.) r4 |
+  \key des \major
+  des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
+  des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c c( | des2.) r4 |
 
   \mark #7
   R1*4
 
   \mark #8
-  r4 r8 g e g g g | gis8. gis16 ~ gis8 a ~ a b4 b8( | d4) c8 c ~ c a4 g8 ~ | g a r4 r g8 g |
-  c a4 c8 ~ c d4 a8 ~ | a a( g4) r g8 g | a b4 c8 ~ c d4 a8 ~ | a a( g4) r2 |
+  r4 r8 as f as as as | a8. a16 ~ a8 bes ~ bes c4 c8( | es4) des8 des ~ des bes4 as8 ~ | as bes r4 r as8 as |
+  des bes4 des8 ~ des es4 bes8 ~ | bes bes( as4) r as8 as | bes c4 des8 ~ des es4 bes8 ~ | bes bes( as4) r2 |
 
   \mark #9
   \partcombine \relative c' {
-    r4 r8 g e g g g | gis8. gis16 ~ gis8 a ~ a b4. | d4 c8 c ~ c a4 g8 ~ | g a r4 r8 g g g |
-    c( a) a c8 ~ c d4 a8 ~ | a a( g4) r8 g g g | f'4 e8 d ~ d c d c( | d1) \bar "||"
+    r4 r8 as f as as as | a8. a16 ~ a8 bes ~ bes c4. | es4 des8 des ~ des bes4 as8 ~ | as bes r4 r8 as as as |
+    des( bes) bes des8 ~ des es4 bes8 ~ | bes bes( as4) r8 as as as | ges'4 f8 es ~ es des es des( | es1) \bar "||"
   } \relative c {
-    r4 r8 e c e e e | e8. e16 ~ e8 e ~ e gis4. | a4 f8 f ~ f f4 e8 ~ | e e r4 r8 c c c |
-    f( c) c f ~ f g4 f8( | e) f( e4) r8 e e e | a4 a8 f ~ f f f g ~ | g1 |
+    r4 r8 f des f f f | f8. f16 ~ f8 f ~ f a4. | bes4 ges8 ges ~ ges ges4 f8 ~ | f f r4 r8 des des des |
+    ges( des) des ges ~ ges as4 ges8( | f) ges( f4) r8 f f f | bes4 bes8 ges ~ ges ges ges as ~ | as1 |
   }
 
   \mark #10
-  \key g \major
+  \key as \major
   \partcombine \relative c' {
-    r4 r8 d d d4 d8 ~ | d4 e8 c ~ c g'4 fis8 ~ | fis a, a a a b c e ~ | e4 d b a8 a( ~ |
-    a8 g) r4 r8 e fis g | \tuplet 3/2 {b( a b} a) a r a( b) b( | c1) ~ | c4 r a4. d8 ~ | d d ~ d4 ~ d2 ~ | d r8 g, a b \bar "||"
+    r4 r8 es es es4 es8 ~ | es4 f8 des ~ des as'4 g8 ~ | g bes, bes bes bes c des f ~ | f4 es c bes8 bes( ~ |
+    bes8 as) r4 r8 f g as | \tuplet 3/2 {c( bes c} bes) bes r bes( c) c( | des1) ~ | des4 r bes4. es8 ~ | es es ~ es4 ~ es2 ~ | es r8 as, bes c \bar "||"
   } \relative c' {
-    r4 r8 b b b4 b8 ~ | b4 c8 e, ~ a c4 d8 ~ | d fis, fis fis fis g a a( | b4) a g fis8 fis( ~ |
-    fis8 e) r4 r8 e fis g | \tuplet 3/2 {g( fis g} e) e r e( e) e( | f1) ~ | f4 r f4. a8 ~ | a b ~ b4 ~ b2 ~ | b2 r8 e, d e |
+    r4 r8 c c c4 c8 ~ | c4 des8 f, ~ bes des4 es8 ~ | es g, g g g as bes bes( | c4) bes as g8 g( ~ |
+    g8 f) r4 r8 f g as | \tuplet 3/2 {as( g as} f) f r f( f) f( | ges1) ~ | ges4 r ges4. bes8 ~ | bes c ~ c4 ~ c2 ~ | c2 r8 f, es f |
   }
 
   \mark #11
-  \key c \major
+  \key des \major
   \partcombine \relative c' {
-    c4 r8 e d c b c | d4. g8 f e d c | a4 r8 e' d c b a | g4 d'8 c r g a b |
-    c4 r8 e d c b c | d4. g8 f e d c | a4 r8 e' d c b b( | c2) r8 d c d |
-  } \relative c {
-    f4 r8 c' b a g a | b4. e8 c b g e | f4 r8 c' b a g f | e4 b'8 a r e d e |
-    f4 r8 c' b a g a | b4. e8 c b aes f | d4 r8 c' b a b b( | c2) r8
+    des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
+    des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c c( | des2) r8 es des es |
+  } \relative c' {
+    ges4 r8 des' c bes as bes | c4. f8 des c as f | ges4 r8 des' c bes as ges | f4 c'8 bes r f es f |
+    ges4 r8 des' c bes as bes | c4. f8 des c beses ges | es4 r8 des' c bes c c( | des2) r8
   }
 
   \mark #12
-  r2 r4 r8 a | c a c a c a ~ a4 | r2 r8 g' e g | r d( e2.) |
-  r2 r4 r8 a, | c a c a c c( d4) | r2 r8 g e g | r d( e2) c4
+  r2 r4 r8 bes | des bes des bes des bes ~ bes4 | r2 r8 as' f as | r es( f2.) |
+  r2 r4 r8 bes, | des bes des bes des des( es4) | r2 r8 as f as | r es( f2) des4
 
   \mark #13
-  <c ees g>1 ~ | q2 q4. <d f g>8 | <c e g>1 ~ | q2 c2 |
-  <c ees g>1 ~ | q2 q4. <d f g>8 | <c e g>1 ~ |\break q2 r8 c c d |
+  <des fes as>1 ~ | q2 q4. <es ges as>8 | <des f as>1 ~ | q2 des2 |
+  <des fes as>1 ~ | q2 q4. <es ges as>8 | <des f as>1 ~ | q2 r |
 
-  \hideNotes c8^\markup {後で書く :)} \repeat unfold 23 { c8 } \unHideNotes r2 r8 aes bes c \bar "||" \break
+  R1 | r2 r8 a b cis \bar "||" \break
 
   \mark #14
-  \key des \major
-  des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
-  des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as^\markup {La} bes c |
+  \key d \major
+  d4 r8 fis e d cis d | e4. a8 g fis e d | b4 r8 fis' e d cis b | a4 e'8 d r a b cis |
+  d4 r8 fis e d cis d | e4. a8 g fis e d | b4 r8 fis' e d cis b | a4 e'8 d r a^\markup {La} b cis |
 
 %\set Score.skipTypesetting = ##f
   \mark #15
-  des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r as bes c |
-  des4 r8 f es des c des | es4. as8 ges f es des | bes4 r8 f' es des c bes | as4 es'8 des r2
+  d4 r8 fis e d cis d | e4. a8 g fis e d | b4 r8 fis' e d cis b | a4 e'8 d r a b cis |
+  d4 r8 fis e d cis d | e4. a8 g fis e d | b4 r8 fis' e d cis b | a4 e'8 d r2
 
   R1*4 \bar "|."
 }
@@ -209,11 +209,11 @@ soprano = \relative c'' {
   % M
   ees1^\markup {La} ~ | ees2 f | e1 ~ | e |
   ees1 ~ | ees2 f | g1 ~ | g2 r |
-  s1*4
+  g,4.^\markup {True} f8^\markup {Heart} ~ f4 bes^\markup {Ah} ~ | bes2 ~ bes8-. r r4 |
 
   % N
   \key des \major
-  bes,2.^\markup {Lu} c4 | aes4. f8 ~ f f ges aes | bes2. c4 | aes4. ees'8 des c bes aes |
+  bes2.^\markup {Lu} c4 | aes4. f8 ~ f f ges aes | bes2. c4 | aes4. ees'8 des c bes aes |
   bes2. c4 | aes4. aes'8 ges f ees des | bes2. c4 | aes2 aes' |
 
   % O
@@ -286,8 +286,8 @@ alto = \relative c'{
 
   % M
   c,1 ~ | \tuplet 3/2 { c4 c f } \tuplet 3/2 { bes a aes } | g1 ~ | \tuplet 3/2 { g4 d e } \tuplet 3/2 { g a c }
-  g1 ~ | g4 f bes2 | b1 ~ | b2 r
-  s1*4
+  g1 ~ | g4 f bes2 | b1 ~ | b2 r8 c, c d |
+  ees4. d8 ~ d4 f^\markup {La ...} ~ | f8 ees4. ees8-. r r4 |
 
   % N
   \key des \major
@@ -369,11 +369,11 @@ tenor = \relative c' {
   % M
   ees1 ~ | \tuplet 3/2 { ees4 f g } bes f' | e1 ~ | \tuplet 3/2 { e4 g, d' } c g |
   ees1 ~ | \tuplet 3/2 { ees4 f g } \tuplet 3/2 { bes ees f } | e1 ~ | e2 r |
-  s1*4
+  c4. bes8 ~ bes4 des ~ | des8 c4. c8-. r r4 |
 
   % N
   \key des \major
-  r8 ges,^\markup{ たとえばきみがいるだけでつよくなれる } aes bes aes4. c8 | des4 aes f ges8( aes) | ges2 aes | des4. ges8 f ees des c |
+  r8 ges^\markup{ たとえばきみがいるだけでつよくなれる } aes bes aes4. c8 | des4 aes f ges8( aes) | ges2 aes | des4. ges8 f ees des c |
   bes2. ees,4 | f4. c'8 bes aes ges f | ges2. aes4 | f2 <<{\tiny r8 aes bes c}\\{f2}>> |
 
   % O
@@ -448,11 +448,11 @@ bass = \relative c {
   % M
   aes4 aes aes aes | aes aes aes aes | c c c c | c c c c |
   aes4 aes aes aes | aes aes aes aes | c c c c | c c c c |
-  s1*4
+  aes4. g8 ~ g4 ges ~ | ges8 f4. aes8-. r r4 |
 
   % N
   \key des \major
-  ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des | ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des |
+  ees'4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des | ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des |
   ees4 r8 ees aes,4 r8 aes | des4 r8 des bes4 c8 des | ees4 r8 ees aes,4 r8 aes | des4 r8 des <<{\tiny r8 aes' bes c}\\{bes,4 c8 des}>> |
 
   % O
